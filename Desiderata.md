@@ -17,7 +17,7 @@
 - infoParadas(DireccionGPS direccion, double radio)-> dada una dirección expresada en GD y un radio expresado en metros, deberá
 proporcionarse información sobre las líneas que tienen parada en dicho radio.
 - getDistanciaParada(int id_Linea1, int id_Linea2)-> conocer la distancia de una parada de una línea a una parada de otra línea.
--getLineas() return Linea[];-> Obtener array con todas las líneas de la red.
+- getLineas() return Linea[];-> Obtener array con todas las líneas de la red.
 
 ## Clase Línea
 ### Atributos
