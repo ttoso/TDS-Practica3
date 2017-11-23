@@ -1,14 +1,14 @@
 package uva.tds.pr2.equipo10;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class LineaTest {
-
+	
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void constructorCorrectoTest() {
+		@SuppressWarnings("unused")
+		Linea linea = new Linea(1, new Parada(), new Parada(), new Parada[3]);
+		
 	}
 
 }
