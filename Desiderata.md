@@ -33,11 +33,11 @@ proporcionarse información sobre las líneas que tienen parada en dicho radio.
 
 ### Funciones
 - getParadas():Parada[]-> Obtener array con todas las paradas de una línea.
-- addParada(Parada parada)
-- removeParada(int orden)
-- setInicio (Parada inicio)
-- setFin (Parada fin)
-- searchParada(DireccionGPS direccion) -> Se desea que se pueda consultar si una línea tiene parada cerca de una dirección GPS, definiendo cerca a una distancia menor de 200 metros.
+- addParada(Parada parada):void
+- removeParada(int orden):void
+- setInicio (Parada inicio):void
+- setFin (Parada fin):void
+- hasParadaCerca(DireccionGPS direccion):boolean-> Se desea que se pueda consultar si una línea tiene parada cerca de una dirección GPS, definiendo cerca a una distancia menor de 200 metros.
 - checkDistancia(Parada parada1, Parada parada2):double->Se desea conocer la distancia de una parada a otra de la línea.
 
 ## Clase Parada
