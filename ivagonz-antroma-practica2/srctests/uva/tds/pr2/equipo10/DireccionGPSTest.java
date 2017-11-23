@@ -8,13 +8,16 @@ public class DireccionGPSTest {
 
 	@Test
 	public void constructorCorrectoTest() {
-		double latitudNorte = 1.0;
-		double latitudSur = -1.0;
-		double longitudEste = 1.0;
-		double longitudOeste = -1.0;
-		@SuppressWarnings("unused")
-		DireccionGPS direccion = new DireccionGPS(latitudNorte, latitudSur, 
-				longitudEste, longitudOeste);
+		// Latitud y longitud entre 180 y -180
+		fail("Quitar en implementacion");
+		double latitud = 1.0;
+		double longitud = 1.0;
+
+		DireccionGPS direccion = new DireccionGPS(latitud, longitud);
+		assertTrue(direccion.getLatitud() >= -180);
+		assertTrue(direccion.getLatitud() <= 180);
+		assertTrue(direccion.getLongitud() >= -180);
+		assertTrue(direccion.getLongitud() <= 180);
 	}
 
 }
