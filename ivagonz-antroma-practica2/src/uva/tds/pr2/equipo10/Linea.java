@@ -47,10 +47,17 @@ public class Linea {
 
 	}
 
+<<<<<<< HEAD
 	public void addParadaFinal(Parada parada) {
+=======
+	public void addParadaInicial(Parada parada) {
+>>>>>>> f003e434a7cd3487fd7f361d54a84bc978395045
 		// TODO Auto-generated method stub
 		
 	}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f003e434a7cd3487fd7f361d54a84bc978395045
 }
