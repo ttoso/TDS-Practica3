@@ -24,6 +24,16 @@ public class Linea {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Parada[] getParadas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void addParada(Parada parada, int posicion) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 
 	

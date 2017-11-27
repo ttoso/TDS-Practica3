@@ -2,114 +2,62 @@ package uva.tds.pr2.equipo10;
 
 import static org.junit.Assert.*;
 
-import org.junit.Test;
+import org.junit.*;
 
 public class LineaTest {
-	
-	@Test
-	public void constructorCorrectoTest() {
-		fail("Eliminar en implementaciion");
-		DireccionGPS direccion1 = new DireccionGPS(20.45,30.50);
-		DireccionGPS direccion2 = new DireccionGPS(30.5, 20.4);
-		DireccionGPS direccion3 = new DireccionGPS(20.4498,30.50);
-		Parada parada1 = new Parada(direccion1);
-		Parada parada2 = new Parada(direccion2);
-		Parada parada3 = new Parada(direccion3);
-		Parada[] paradas = new Parada[3];
-		paradas[0] = parada1;
-		paradas[1] = parada2;
-		paradas[2] = parada3;
-		int identificador = 1;
-		
-	    @SuppressWarnings("unused")
-		Linea linea = new Linea(identificador, paradas);
-		
-		assertTrue(identificador > 0);
-		assertNotNull(paradas);
-		assertTrue(paradas.length >= 3);
-		assertTrue(paradas[0].getDistancia(paradas[paradas.length-1]) < 100);
-		for (int i = 0; i < paradas.length; i++) {
-			assertNotNull(paradas[i]);
-		}
-		
-	}
-	
-	
-	@Test(expected = IllegalArgumentException.class)
-	public void constructorIdentificadorMenorQue1Test() {
-		DireccionGPS direccion1 = new DireccionGPS(20.45,30.50);
-		DireccionGPS direccion2 = new DireccionGPS(30.5, 20.4);
-		DireccionGPS direccion3 = new DireccionGPS(20.4498,30.50);
-		Parada parada1 = new Parada(direccion1);
-		Parada parada2 = new Parada(direccion2);
-		Parada parada3 = new Parada(direccion3);
-		Parada[] paradas = new Parada[3];
-		paradas[0] = parada1;
-		paradas[1] = parada2;
-		paradas[2] = parada3;
-		int identificador = 0;
-		
-		@SuppressWarnings("unused")
-		Linea linea = new Linea(identificador, paradas);
-	}
-	
-	@Test(expected = NullPointerException.class)
-	public void constructorParadasNullTest() {
-		Parada[] paradas = null;
 
-		int identificador = 1;
-		
-		@SuppressWarnings("unused")
-		Linea linea = new Linea(identificador, paradas);
-	}
-	
-	@Test(expected = NullPointerException.class)
-	public void constructorParadasConUnElementoNullTest() {
-		DireccionGPS direccion1 = new DireccionGPS(20.45,30.50);
-		DireccionGPS direccion3 = new DireccionGPS(20.4498,30.50);
-		Parada parada1 = new Parada(direccion1);
-		Parada parada3 = new Parada(direccion3);
-		Parada[] paradas = new Parada[3];
+	private DireccionGPS direccion1;
+	private DireccionGPS direccion2;
+	private DireccionGPS direccion3;
+	private Parada parada1;
+	private Parada parada2;
+	private Parada parada3;
+	private Parada paradas[];
+	private int identificador;
+	private Linea linea;
+
+	@Before
+	public void setUp() throws Exception {
+		direccion1 = new DireccionGPS(20.45, 30.50);
+		direccion2 = new DireccionGPS(30.5, 20.4);
+		direccion3 = new DireccionGPS(20.4498, 30.50);
+		parada1 = new Parada(direccion1);
+		parada2 = new Parada(direccion2);
+		parada3 = new Parada(direccion3);
+		paradas = new Parada[3];
 		paradas[0] = parada1;
+		paradas[1] = parada2;
+		paradas[2] = parada3;
+		identificador = 1;
+		linea = new Linea(identificador, paradas);
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		direccion1 = null;
+		direccion2 = null;
+		direccion3 = null;
+		parada1 = null;
+		parada2 = null;
+		parada3 = null;
+		paradas = null;
+		paradas[0] = null;
 		paradas[1] = null;
-		paradas[2] = parada3;
-		int identificador = 1;
-		
-		@SuppressWarnings("unused")
-		Linea linea = new Linea(identificador, paradas);
+		paradas[2] = null;
+		identificador = 0;
+		linea = null;
 	}
-	
-	@Test(expected = IllegalArgumentException.class)
-	public void constructorParadasConMenosDe3ElementosTest() {
-		DireccionGPS direccion1 = new DireccionGPS(20.45,30.50);
-		DireccionGPS direccion2 = new DireccionGPS(20.4498,30.50);
-		Parada parada1 = new Parada(direccion1);
-		Parada parada2 = new Parada(direccion2);
-		Parada[] paradas = new Parada[2];
-		paradas[0] = parada1;
-		paradas[1] = parada2;
-		int identificador = 1;
-		
-		@SuppressWarnings("unused")
-		Linea linea = new Linea(identificador, paradas);
-	}
-	
-	@Test(expected = IllegalArgumentException.class)
-	public void constructorDistanciaParadaInicioYParadaFinMayorQue100Test() {
-		DireccionGPS direccion1 = new DireccionGPS(20.45,30.50);
-		DireccionGPS direccion2 = new DireccionGPS(30.5, 20.4);
-		DireccionGPS direccion3 = new DireccionGPS(20.4509,30.50);
-		Parada parada1 = new Parada(direccion1);
-		Parada parada2 = new Parada(direccion2);
-		Parada parada3 = new Parada(direccion3);
-		Parada[] paradas = new Parada[3];
-		paradas[0] = parada1;
-		paradas[1] = parada2;
-		paradas[2] = parada3;
-		int identificador = 1;
-		
-		@SuppressWarnings("unused")
-		Linea linea = new Linea(identificador, paradas);
+
+	@Test
+	public void addParadaCorrectoTest() {
+		//fail("Cambiar");
+		DireccionGPS direccionGPS = new DireccionGPS(20.1, 31);
+		Parada parada = new Parada(direccionGPS);
+		int posicion = 1;
+		linea.addParada(parada, posicion);
+		assertNotNull(parada);
+		assertTrue(posicion > 0);
+		assertTrue(posicion < paradas.length - 1);
 	}
 
 }
