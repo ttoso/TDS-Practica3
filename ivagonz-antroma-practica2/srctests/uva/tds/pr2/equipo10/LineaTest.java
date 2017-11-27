@@ -8,6 +8,7 @@ public class LineaTest {
 	
 	@Test
 	public void constructorCorrectoTest() {
+		fail("Eliminar en implementaciion");
 		DireccionGPS direccion1 = new DireccionGPS(20.45,30.50);
 		DireccionGPS direccion2 = new DireccionGPS(30.5, 20.4);
 		DireccionGPS direccion3 = new DireccionGPS(20.4498,30.50);
@@ -65,7 +66,6 @@ public class LineaTest {
 	@Test(expected = NullPointerException.class)
 	public void constructorParadasConUnElementoNullTest() {
 		DireccionGPS direccion1 = new DireccionGPS(20.45,30.50);
-		DireccionGPS direccion2 = new DireccionGPS(30.5, 20.4);
 		DireccionGPS direccion3 = new DireccionGPS(20.4498,30.50);
 		Parada parada1 = new Parada(direccion1);
 		Parada parada3 = new Parada(direccion3);
