@@ -78,5 +78,17 @@ public class LineaTest {
 		int posicion = paradas.length - 1;
 		linea.addParadaIntermedia(parada, posicion);
 	}
+	
+	
+	
+	@Test 
+	public void addParadaFinalTest(){
+		DireccionGPS direccionGPS = new DireccionGPS(20.44989, 30.5);
+		Parada parada = new Parada(direccionGPS);
+		linea.addParadaFinal(parada);
+		
+		assertNotNull(parada);
+		assertTrue(parada.getDistancia(paradas[0]) < 100);
+	}
 
 }

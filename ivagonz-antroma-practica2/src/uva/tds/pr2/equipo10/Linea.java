@@ -24,27 +24,33 @@ public class Linea {
 	 *            menor a 100.
 	 * @throws IllegalArgumentException
 	 *             en caso de incumplir las condiciones impuestas a los
-	 *             parámetros.
+	 *             parï¿½metros.
 	 */
 	public Linea(int identificador, Parada[] paradas) {
 		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * Función para añadir Paradas intermedias a la línea.
+	 * Funciï¿½n para aï¿½adir Paradas intermedias a la lï¿½nea.
 	 * 
 	 * @param parada
-	 *            Parada a añadir. Debe ser correcta: No nula.
+	 *            Parada a aï¿½adir. Debe ser correcta: No nula.
 	 * @param posicion
-	 *            Posicion en la que añadir la Parada.Debe ser correcta: No
+	 *            Posicion en la que aï¿½adir la Parada.Debe ser correcta: No
 	 *            puede ser el inicio ni el final de la Linea.
 	 * @throws IllegalArgumentException
 	 *             en caso de incumplir las condiciones impuestas a los
-	 *             parámetros.
+	 *             parï¿½metros.
 	 */
 	public void addParadaIntermedia(Parada parada, int posicion) {
 		// TODO Auto-generated method stub
 
 	}
+
+	public void addParadaFinal(Parada parada) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }
