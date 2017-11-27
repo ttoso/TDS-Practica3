@@ -16,7 +16,7 @@
 - removeLinea(int id):void-> Eliminar lineas de la red.
 - infoParadas(DireccionGPS direccion, double radio):Linea[]-> dada una dirección expresada en GD y un radio expresado en metros, deberá
 proporcionarse información sobre las líneas que tienen parada en dicho radio.
-- getDistanciaParada(int id_Linea1, int id_Linea2):double-> conocer la distancia de una parada de una línea a una parada de otra línea.
+- getDistanciaParada(int id_Linea1, int id_Linea2):int-> conocer la distancia de una parada de una línea a una parada de otra línea.
 - getLineas():Linea[]-> Obtener array con todas las líneas de la red.
 
 ## Clase Línea
@@ -33,11 +33,11 @@ proporcionarse información sobre las líneas que tienen parada en dicho radio.
 
 ### Funciones
 - getParadas():Parada[]-> Obtener array con todas las paradas de una línea.
-- addParada(Parada parada)
-- removeParada(int orden)
-- setInicio (Parada inicio)
-- setFin (Parada fin)
-- searchParada(DireccionGPS direccion) -> Se desea que se pueda consultar si una línea tiene parada cerca de una dirección GPS, definiendo cerca a una distancia menor de 200 metros.
+- addParada(Parada parada):void
+- removeParada(int orden):void
+- setInicio (Parada inicio):void
+- setFin (Parada fin):void
+- hasParadaCerca(DireccionGPS direccion):boolean-> Se desea que se pueda consultar si una línea tiene parada cerca de una dirección GPS, definiendo cerca a una distancia menor de 200 metros.
 - checkDistancia(Parada parada1, Parada parada2):double->Se desea conocer la distancia de una parada a otra de la línea.
 
 ## Clase Parada
@@ -56,7 +56,7 @@ proporcionarse información sobre las líneas que tienen parada en dicho radio.
 - getGradosSexagesimales():DireccionGPS-> n. Los grados decimales representan la
 parte de minutos y segundos de los grados sexagecimales como la parte decimal de un número real
 cuya parte entera está dada por los grados (2°15′23″ = 12° + 15(1/60)° + 23(1/3600)° ≈ 12,25639°).
-- getDistancia():double-> Dadas 2 direcciones, obtener la distancia en metros entre ambas.
+- getDistancia():int-> Dadas 2 direcciones, obtener la distancia en metros entre ambas.
 
 ## Anotaciones
 Antes de empezar a construir los test, especificar en concreto que es lo que debe devolver cada una de las funciones planteadas
