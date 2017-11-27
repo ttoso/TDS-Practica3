@@ -14,4 +14,10 @@ public class ParadaTest {
 		Parada parada = new Parada(direccion);
 		assertNotNull(direccion);
 	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void constructorDireccionNullTest() {
+		@SuppressWarnings("unused")
+		Parada parada = new Parada(null);
+	}
 }
