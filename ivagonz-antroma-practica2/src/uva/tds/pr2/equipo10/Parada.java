@@ -15,11 +15,16 @@ public class Parada {
 	 *            Recibe un objeto DireccionGPS que indicará la posición de la
 	 *            Parada dentro de una Linea de la Red. Debe ser correcto: no
 	 *            nulo.
-	 * @throws IllegalArgumentException
+	 * @throws NullPointerException
 	 *             si se incumplen las condiciones impuestas al parámetro.
 	 */
 	public Parada(DireccionGPS direccionGPS) {
 		// TODO Auto-generated constructor stub
+	}
+
+	public void getDistancia(Parada parada) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
