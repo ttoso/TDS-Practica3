@@ -15,7 +15,7 @@ public class ParadaTest {
 		assertNotNull(direccion);
 	}
 
-	@Test(expected = NullPointerException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void constructorDireccionNullTest() {
 		@SuppressWarnings("unused")
 		Parada parada = new Parada(null);
@@ -31,7 +31,7 @@ public class ParadaTest {
 		assertNotNull(parada2);
 	}
 
-	@Test(expected = NullPointerException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void getDistanciaParadaACompararNullTest() {
 		DireccionGPS direccion = new DireccionGPS(5.1, -5.1);
 		Parada parada = new Parada(direccion);
