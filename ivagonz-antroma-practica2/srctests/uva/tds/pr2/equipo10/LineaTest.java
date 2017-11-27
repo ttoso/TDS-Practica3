@@ -80,13 +80,26 @@ public class LineaTest {
 	}
 
 	@Test
-	public void addParadaFinalTest() {
+	public void addParadaFinalCorrectoTest() {
 		DireccionGPS direccionGPS = new DireccionGPS(20.44989, 30.5);
 		Parada parada = new Parada(direccionGPS);
 		linea.addParadaFinal(parada);
 
 		assertNotNull(parada);
 		assertTrue(parada.getDistancia(paradas[0]) < 100);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void addParadaFinalParadaNulaTest() {
+		linea.addParadaFinal(null);
+
+	}
+
+	@Test
+	public void addParadaFinalConParadaAMasDe100MetrosDeLaFinalSTest() {
+		DireccionGPS direccionGPS = new DireccionGPS(20.4509, 30.5);
+		Parada parada = new Parada(direccionGPS);
+		linea.addParadaFinal(parada);
 	}
 
 	@Test
