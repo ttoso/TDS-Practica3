@@ -46,20 +46,29 @@ public class Linea {
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	/**
 	 * Añade una parada como final del recorrido
-	 * @param parada parada que se añade. Debe ser correcta:
-	 * 		no nula
-	 * 		estar a menos de 100 metros de la parada inicial.
+	 * 
+	 * @param parada
+	 *            parada que se añade. Debe ser correcta: no nula estar a menos
+	 *            de 100 metros de la parada inicial.
 	 */
 	public void addParadaFinal(Parada parada) {
 		// TODO Auto-generated method stub
-}
+	}
+
+	/**
+	 * A�ade una parada como inicio del recorrido.
+	 * 
+	 * @param parada
+	 *            parada que se añade. Debe ser correcta: no nula estar a menos
+	 *            de 100 metros de la parada final.
+	 */
 	public void addParadaInicial(Parada parada) {
 
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
