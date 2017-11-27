@@ -58,5 +58,10 @@ parte de minutos y segundos de los grados sexagecimales como la parte decimal de
 cuya parte entera está dada por los grados (2°15′23″ = 12° + 15(1/60)° + 23(1/3600)° ≈ 12,25639°).
 - getDistancia():int-> Dadas 2 direcciones, obtener la distancia en metros entre ambas.
 
+# Hecho 
+- Clase DireccionGPS
+- Clase Parada
+- Funciones de Linea: getParadas(),addParada(),setInicio(), setFin().
+
 ## Anotaciones
 Antes de empezar a construir los test, especificar en concreto que es lo que debe devolver cada una de las funciones planteadas
