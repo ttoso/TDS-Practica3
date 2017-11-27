@@ -31,7 +31,7 @@ public class Linea {
 	}
 
 	/**
-	 * Funci�n para a�adir Paradas intermedias a la l�nea.
+	 * Añade Paradas intermedias a la l�nea.
 	 * 
 	 * @param parada
 	 *            Parada a a�adir. Debe ser correcta: No nula.
@@ -46,9 +46,15 @@ public class Linea {
 		// TODO Auto-generated method stub
 
 	}
-
+	
+	/**
+	 * Añade una parada como final del recorrido
+	 * @param parada parada que se añade. Debe ser correcta:
+	 * 		no nula
+	 * 		estar a menos de 100 metros de la parada inicial.
+	 */
 	public void addParadaFinal(Parada parada) {
-
+		// TODO Auto-generated method stub
 }
 	public void addParadaInicial(Parada parada) {
 
