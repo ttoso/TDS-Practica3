@@ -79,4 +79,14 @@ public class LineaTest {
 		linea.addParadaIntermedia(parada, posicion);
 	}
 
+	@Test
+	public void addParadaInicialCorrectoTest() {
+		fail("Cambiar");
+		DireccionGPS direccionGPS = new DireccionGPS(20.44989, 30.5);
+		Parada parada = new Parada(direccionGPS);
+		linea.addParadaInicial(parada);
+		assertNotNull(parada);
+		assertTrue(paradas[paradas.length - 1].getDistancia(parada) < 100);
+	}
+
 }

@@ -47,4 +47,9 @@ public class Linea {
 
 	}
 
+	public void addParadaInicial(Parada parada) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
