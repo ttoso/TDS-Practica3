@@ -31,4 +31,11 @@ public class ParadaTest {
 		assertNotNull(parada2);
 	}
 
+	@Test(expected = NullPointerException.class)
+	public void getDistanciaParadaACompararNullTest() {
+		DireccionGPS direccion = new DireccionGPS(5.1, -5.1);
+		Parada parada = new Parada(direccion);
+		parada.getDistancia(null);
+	}
+
 }
