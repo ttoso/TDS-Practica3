@@ -41,23 +41,42 @@ public class LineaTest {
 		parada2 = null;
 		parada3 = null;
 		paradas = null;
-		paradas[0] = null;
-		paradas[1] = null;
-		paradas[2] = null;
 		identificador = 0;
 		linea = null;
 	}
 
 	@Test
-	public void addParadaCorrectoTest() {
-		//fail("Cambiar");
+	public void addParadaIntermediaCorrectoTest() {
+		fail("Cambiar");
 		DireccionGPS direccionGPS = new DireccionGPS(20.1, 31);
 		Parada parada = new Parada(direccionGPS);
 		int posicion = 1;
-		linea.addParada(parada, posicion);
+		linea.addParadaIntermedia(parada, posicion);
 		assertNotNull(parada);
 		assertTrue(posicion > 0);
 		assertTrue(posicion < paradas.length - 1);
+	}
+
+	@Test(expected = NullPointerException.class)
+	public void addParadaIntermediaConParadaNullTest() {
+		int posicion = 1;
+		linea.addParadaIntermedia(null, posicion);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void addParadaIntermediaConPosicionMenorDeCeroTest() {
+		DireccionGPS direccionGPS = new DireccionGPS(20.1, 31);
+		Parada parada = new Parada(direccionGPS);
+		int posicion = 0;
+		linea.addParadaIntermedia(parada, posicion);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void addParadaIntermediaConPosicionMayorQuePardaFinalTest() {
+		DireccionGPS direccionGPS = new DireccionGPS(20.1, 31);
+		Parada parada = new Parada(direccionGPS);
+		int posicion = paradas.length - 1;
+		linea.addParadaIntermedia(parada, posicion);
 	}
 
 }

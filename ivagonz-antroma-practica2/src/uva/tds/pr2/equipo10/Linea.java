@@ -29,7 +29,7 @@ public class Linea {
 		return null;
 	}
 
-	public void addParada(Parada parada, int posicion) {
+	public void addParadaIntermedia(Parada parada, int posicion) {
 		// TODO Auto-generated method stub
 		
 	}
