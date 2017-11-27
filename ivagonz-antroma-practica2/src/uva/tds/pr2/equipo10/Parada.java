@@ -22,4 +22,18 @@ public class Parada {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Función que dada otra parada, obtendrá la distancia entre this y dicha
+	 * Parada, expresada en metros.
+	 * 
+	 * @param parada
+	 *            Parada a comparar con this. Debe ser correcta: no nula.
+	 * @throws IllegalArgumentException
+	 *             si se incumplen las condiciones impuestas al parámetro.
+	 */
+	public int getDistancia(Parada parada) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

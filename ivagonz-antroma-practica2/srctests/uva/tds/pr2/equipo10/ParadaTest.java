@@ -8,7 +8,7 @@ public class ParadaTest {
 
 	@Test
 	public void constructorCorrectoTest() {
-		// fail("Quitar en implentación");
+		fail("Quitar en implentación");
 		DireccionGPS direccion = new DireccionGPS(5.1, -5.1);
 		@SuppressWarnings("unused")
 		Parada parada = new Parada(direccion);
@@ -20,4 +20,22 @@ public class ParadaTest {
 		@SuppressWarnings("unused")
 		Parada parada = new Parada(null);
 	}
+
+	@Test
+	public void getDistanciaCorrectoTest() {
+		fail("Quitar en implentación");
+		DireccionGPS direccion = new DireccionGPS(5.1, -5.1);
+		Parada parada = new Parada(direccion);
+		Parada parada2 = new Parada(direccion);
+		parada.getDistancia(parada2);
+		assertNotNull(parada2);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void getDistanciaParadaACompararNullTest() {
+		DireccionGPS direccion = new DireccionGPS(5.1, -5.1);
+		Parada parada = new Parada(direccion);
+		parada.getDistancia(null);
+	}
+
 }
