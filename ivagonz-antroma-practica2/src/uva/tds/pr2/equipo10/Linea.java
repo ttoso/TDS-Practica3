@@ -169,6 +169,18 @@ public class Linea {
 		return null;
 	}
 
+	/**
+	 * Comprobará la distancia entre 2 Paradas de la Linea.
+	 * 
+	 * @param parada1
+	 *            Primera Parada a comprobar. Debe ser correcta: No nula.
+	 * @param parada2
+	 *            Segunda Parada a comprobar.Debe ser correcta: No nula.
+	 * @return La distancia entre las 2 paradas pasadas como parámetro si están
+	 *         en la Ĺinea, 0 en caso contrario.
+	 * @throws IllegalArgumentException
+	 *             si se incumplen las condiciones impuestas a los parámetros.
+	 */
 	public int checkDistancia(Parada parada1, Parada parada2) {
 		// TODO Auto-generated method stub
 		return 0;
