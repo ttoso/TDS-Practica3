@@ -101,4 +101,9 @@ public class Linea {
 		return false;
 	}
 
+	public boolean hasCorrespondencia(Linea linea) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

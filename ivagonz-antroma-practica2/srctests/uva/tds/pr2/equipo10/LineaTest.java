@@ -163,4 +163,23 @@ public class LineaTest {
 		linea.hasParadaCerca(direccion2);
 	}
 
+	@Test
+	public void hasCorrespondenciaCorrectoTest() {
+		DireccionGPS _direccion1 = new DireccionGPS(20.45, 30.50);
+		DireccionGPS _direccion2 = new DireccionGPS(30.5, 20.4);
+		DireccionGPS _direccion3 = new DireccionGPS(20.4498, 30.50);
+		Parada _parada1 = new Parada(_direccion1);
+		Parada _parada2 = new Parada(_direccion2);
+		Parada _parada3 = new Parada(_direccion3);
+		Parada _paradas[] = new Parada[3];
+		_paradas[0] = _parada1;
+		_paradas[1] = _parada2;
+		_paradas[2] = _parada3;
+		int _identificador = 1;
+		Linea _linea = new Linea(_identificador, _paradas);
+
+		linea.hasCorrespondencia(_linea);
+		assertNotNull(_linea);
+	}
+
 }
