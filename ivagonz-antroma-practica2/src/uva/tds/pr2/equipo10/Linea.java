@@ -71,24 +71,24 @@ public class Linea {
 
 	}
 
-	
 	/**
-	 * Elimina una parada de la linea, si la parada proporcionada no está, no hará nada
+	 * Elimina una parada de la linea, si la parada proporcionada no está, no
+	 * hará nada
 	 * 
 	 * @param parada
-	 * 				parada que se elimina. Debe ser correcta:
-	 * 					no nula,
-	 * 					no debe ser la parada inicial ni la final.
-	 * @throws IllegalArgumentException si se incumplen las condiciones impuestas
+	 *            parada que se elimina. Debe ser correcta: no nula, no debe ser
+	 *            la parada inicial ni la final.
+	 * @throws IllegalArgumentException
+	 *             si se incumplen las condiciones impuestas
 	 */
 	public void removeParada(Parada parada) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	public boolean hasParadaCerca() {
+	public boolean hasParadaCerca(DireccionGPS direccion2) {
 		// TODO Auto-generated method stub
-		
+		return false;
 	}
 
 }

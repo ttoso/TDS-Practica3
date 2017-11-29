@@ -123,53 +123,44 @@ public class LineaTest {
 		Parada parada = new Parada(direccionGPS);
 		linea.addParadaInicial(parada);
 	}
-	
-	
+
 	@Test
-	public void removeParadaCorrectoTest(){
+	public void removeParadaCorrectoTest() {
 		linea.removeParada(parada2);
-		
+
 		assertNotNull(parada2);
 		assertNotEquals(paradas[0], parada2);
-		assertNotEquals(paradas[paradas.length-1], parada2);
-		
+		assertNotEquals(paradas[paradas.length - 1], parada2);
+
 	}
-	
-	
+
 	@Test(expected = IllegalArgumentException.class)
-	public void removeParadaNulaTest(){
+	public void removeParadaNulaTest() {
 		linea.removeParada(null);
-		
+
 	}
-	
+
 	@Test(expected = IllegalArgumentException.class)
-	public void removeParadaConparadaInicialTest(){
+	public void removeParadaConparadaInicialTest() {
 		linea.removeParada(parada1);
-		
+
 	}
-	
+
 	@Test(expected = IllegalArgumentException.class)
-	public void removeParadaConparadaFinTest(){
+	public void removeParadaConparadaFinTest() {
 		linea.removeParada(parada3);
-		
+
 	}
-	
+
 	@Test
-	public void hasParadaCercaCorrectoTest(){
-		linea.hasParadaCerca();
+	public void hasParadaCercaCorrectoTest() {
+		linea.hasParadaCerca(direccion2);
+		assertNotNull(direccion2);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	@Test(expected = IllegalArgumentException.class)
+	public void hasParadaCercaConDireccionNullTest() {
+		linea.hasParadaCerca(direccion2);
+	}
 
 }
