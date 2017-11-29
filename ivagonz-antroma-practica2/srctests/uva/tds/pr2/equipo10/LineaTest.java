@@ -154,6 +154,11 @@ public class LineaTest {
 		
 	}
 	
+	@Test
+	public void hasParadaCercaCorrectoTest(){
+		linea.hasParadaCerca();
+	}
+	
 	
 	
 	

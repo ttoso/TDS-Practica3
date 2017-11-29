@@ -86,4 +86,9 @@ public class Linea {
 		
 	}
 
+	public boolean hasParadaCerca() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
