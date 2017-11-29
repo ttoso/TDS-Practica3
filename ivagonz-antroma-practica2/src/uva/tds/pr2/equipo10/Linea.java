@@ -109,14 +109,28 @@ public class Linea {
 	 *            Linea a comparar con this. Tendrá correspondencia si tiene una
 	 *            Parada a menos de 200 metros de una Parada de this. Tiene que
 	 *            ser correcta: No nula.
-	 * @return true si linea tiene correspondencia  con this, false en caso contrario.
-	 * @throws IllegalArgumentException si se incumplen las condiciones impuestas al parámetro.
+	 * @return true si linea tiene correspondencia con this, false en caso
+	 *         contrario.
+	 * @throws IllegalArgumentException
+	 *             si se incumplen las condiciones impuestas al parámetro.
 	 */
 	public boolean hasCorrespondencia(Linea linea) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
+	/**
+	 * Da información sobre las Paradas que tienen correspondencia de linea y
+	 * this.
+	 * 
+	 * @param linea
+	 *            Linea a comparar con this. Debe ser correcta: No debe ser null
+	 *            y debe tener correspondencia con this.
+	 * @return Vector con las Paradas que tienen correspondencia con Paradas de
+	 *         this.
+	 * @throws IllegalArgumentException
+	 *             si se incumplen las condiciones impuestas al parámetro.
+	 */
 	public Parada[] getParadasConCorrespondencia(Linea linea) {
 		// TODO Auto-generated method stub
 		return null;
