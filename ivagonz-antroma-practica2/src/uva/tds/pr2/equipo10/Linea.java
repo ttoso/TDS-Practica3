@@ -169,4 +169,9 @@ public class Linea {
 		return null;
 	}
 
+	public int checkDistancia(Parada parada1, Parada parada2) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

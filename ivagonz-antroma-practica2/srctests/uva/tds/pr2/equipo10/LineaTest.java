@@ -303,4 +303,12 @@ public class LineaTest {
 		linea.getParadasConTrasbordoDirecto(_linea);
 	}
 
+	@Test
+	public void checkDistanciaCorrectoTest() {
+		fail("Quitar en implementación");
+		linea.checkDistancia(parada1, parada2);
+		assertNotNull(parada1);
+		assertNotNull(parada2);
+	}
+
 }
