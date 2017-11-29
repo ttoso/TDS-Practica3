@@ -152,4 +152,9 @@ public class Linea {
 		return false;
 	}
 
+	public Parada[] getParadasConTrasbordoDirecto(Linea linea) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
