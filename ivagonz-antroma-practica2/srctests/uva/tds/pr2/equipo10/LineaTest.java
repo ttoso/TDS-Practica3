@@ -311,4 +311,15 @@ public class LineaTest {
 		assertNotNull(parada2);
 	}
 
+	@Test(expected = IllegalArgumentException.class)
+	public void checkDistanciaConPrimerParametroNullTest() {
+		fail("Quitar en implementación");
+		linea.checkDistancia(null, parada2);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void checkDistanciaConSegundoParametroNullTest() {
+		fail("Quitar en implementación");
+		linea.checkDistancia(parada1, null);
+	}
 }
