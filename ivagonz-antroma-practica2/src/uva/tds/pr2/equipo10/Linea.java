@@ -152,6 +152,18 @@ public class Linea {
 		return false;
 	}
 
+	/**
+	 * Obtiene un vector de Paradas con trasbordo directo entre Linea y this, si
+	 * linea tiene trasbordo directo con this.
+	 * 
+	 * @param linea
+	 *            Linea a comparar con this, para obtener las Paradas con
+	 *            trasbordo directo. Debe ser correcta: No nula y tiene que
+	 *            tener Paradas con trasbordo directo.
+	 * @return Vector con las Paradas de trasbordo directo entre Linea y this.
+	 * @throws IllegalArgumentException
+	 *             si se incumplen las condiciones impuestas al parámetro.
+	 */
 	public Parada[] getParadasConTrasbordoDirecto(Linea linea) {
 		// TODO Auto-generated method stub
 		return null;
