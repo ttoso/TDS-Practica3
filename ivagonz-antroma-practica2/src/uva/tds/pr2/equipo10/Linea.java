@@ -86,6 +86,16 @@ public class Linea {
 
 	}
 
+	/**
+	 * Comprueba si la Linea tiene una Parada cerca de la direccion pasada.
+	 * 
+	 * @param direccion2
+	 *            DireccionGPS a comprobar.Debe ser correcto: No ser null.
+	 * @return true si tiene una Parada a menos de 200m de la Direccion pasada,
+	 *         false en caso contrario.
+	 * @throws IllegalArgumentException
+	 *             si se incumplen las condiciones impuestas al parámetro.
+	 */
 	public boolean hasParadaCerca(DireccionGPS direccion2) {
 		// TODO Auto-generated method stub
 		return false;
