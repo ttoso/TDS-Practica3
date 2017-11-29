@@ -72,7 +72,7 @@ public class LineaTest {
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void addParadaIntermediaConPosicionMayorQuePardaFinalTest() {
+	public void addParadaIntermediaConPosicionMayorQueParadaFinalTest() {
 		DireccionGPS direccionGPS = new DireccionGPS(20.1, 31);
 		Parada parada = new Parada(direccionGPS);
 		int posicion = paradas.length - 1;
@@ -81,6 +81,7 @@ public class LineaTest {
 
 	@Test
 	public void addParadaFinalCorrectoTest() {
+		fail("Quitar en implementación");
 		DireccionGPS direccionGPS = new DireccionGPS(20.44989, 30.5);
 		Parada parada = new Parada(direccionGPS);
 		linea.addParadaFinal(parada);
@@ -95,8 +96,8 @@ public class LineaTest {
 
 	}
 
-	@Test
-	public void addParadaFinalConParadaAMasDe100MetrosDeLaFinalSTest() {
+	@Test(expected = IllegalArgumentException.class)
+	public void addParadaFinalConParadaAMasDe100MetrosDeLaInicialSTest() {
 		DireccionGPS direccionGPS = new DireccionGPS(20.4509, 30.5);
 		Parada parada = new Parada(direccionGPS);
 		linea.addParadaFinal(parada);
@@ -126,6 +127,7 @@ public class LineaTest {
 
 	@Test
 	public void removeParadaCorrectoTest() {
+		fail("Quitar en implementación");
 		linea.removeParada(parada2);
 
 		assertNotNull(parada2);
@@ -154,6 +156,7 @@ public class LineaTest {
 
 	@Test
 	public void hasParadaCercaCorrectoTest() {
+		fail("Quitar en implementación");
 		linea.hasParadaCerca(direccion2);
 		assertNotNull(direccion2);
 	}
@@ -165,6 +168,7 @@ public class LineaTest {
 
 	@Test
 	public void hasCorrespondenciaCorrectoTest() {
+		fail("Quitar en implementación");
 		DireccionGPS _direccion1 = new DireccionGPS(20.45, 30.50);
 		DireccionGPS _direccion2 = new DireccionGPS(30.5, 20.4);
 		DireccionGPS _direccion3 = new DireccionGPS(20.4498, 30.50);
@@ -180,6 +184,11 @@ public class LineaTest {
 
 		linea.hasCorrespondencia(_linea);
 		assertNotNull(_linea);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void hasCorrespondenciaConLineaNullTest() {
+		linea.hasCorrespondencia(null);
 	}
 
 }
