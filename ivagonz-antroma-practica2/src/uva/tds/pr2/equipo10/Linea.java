@@ -101,6 +101,17 @@ public class Linea {
 		return false;
 	}
 
+	/**
+	 * Comprueba si la Linea pasada como argumento tiene correspondencia con
+	 * this.
+	 * 
+	 * @param linea
+	 *            Linea a comparar con this. Tendrá correspondencia si tiene una
+	 *            Parada a menos de 200 metros de una Parada de this. Tiene que
+	 *            ser correcta: No nula.
+	 * @return true si linea tiene correspondencia  con this, false en caso contrario.
+	 * @throws IllegalArgumentException si se incumplen las condiciones impuestas al parámetro.
+	 */
 	public boolean hasCorrespondencia(Linea linea) {
 		// TODO Auto-generated method stub
 		return false;
