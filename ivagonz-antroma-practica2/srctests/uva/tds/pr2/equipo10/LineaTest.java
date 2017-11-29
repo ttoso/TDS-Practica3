@@ -235,4 +235,22 @@ public class LineaTest {
 		linea.getParadasConCorrespondencia(_linea);
 	}
 
+	@Test
+	public void hasTrasbordoDirectoCorrectoTest() {
+		DireccionGPS _direccion1 = new DireccionGPS(21.45, 31.50);
+		DireccionGPS _direccion2 = new DireccionGPS(30.5, 20.4);
+		DireccionGPS _direccion3 = new DireccionGPS(21.4498, 31.50);
+		Parada _parada1 = new Parada(_direccion1);
+		Parada _parada2 = new Parada(_direccion2);
+		Parada _parada3 = new Parada(_direccion3);
+		Parada _paradas[] = new Parada[3];
+		_paradas[0] = _parada1;
+		_paradas[1] = _parada2;
+		_paradas[2] = _parada3;
+		int _identificador = 2;
+		Linea _linea = new Linea(_identificador, _paradas);
+		linea.hasTrasbordoDirecto(_linea);
+		assertNotNull(_linea);
+	}
+
 }

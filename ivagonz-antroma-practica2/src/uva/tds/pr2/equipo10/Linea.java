@@ -136,4 +136,9 @@ public class Linea {
 		return null;
 	}
 
+	public boolean hasTrasbordoDirecto(Linea _linea) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
