@@ -136,7 +136,18 @@ public class Linea {
 		return null;
 	}
 
-	public boolean hasTrasbordoDirecto(Linea _linea) {
+	/**
+	 * Comprueba si la Linea pasada como parámetro tiene trasbordo directa con
+	 * this.
+	 * 
+	 * @param linea
+	 *            Linea a comparar con this. Debe ser correcta: No nula.
+	 * @return true si la Linea tiene trasbordo directo con this, false en caso
+	 *         contrario.
+	 * @throws IllegalArgumentException
+	 *             si se incumplen las condiciones impuestas al parámetro.
+	 */
+	public boolean hasTrasbordoDirecto(Linea linea) {
 		// TODO Auto-generated method stub
 		return false;
 	}
