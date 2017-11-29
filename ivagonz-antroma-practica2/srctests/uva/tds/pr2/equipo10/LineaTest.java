@@ -126,10 +126,33 @@ public class LineaTest {
 	
 	
 	@Test
-	public void removeParadaCorrecto(){
-		linea.removeParada(parada1);
+	public void removeParadaCorrectoTest(){
+		linea.removeParada(parada2);
+		
+		assertNotNull(parada2);
+		assertNotEquals(paradas[0], parada2);
+		assertNotEquals(paradas[paradas.length-1], parada2);
+		
 	}
 	
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void removeParadaNulaTest(){
+		linea.removeParada(null);
+		
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void removeParadaConparadaInicialTest(){
+		linea.removeParada(parada1);
+		
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void removeParadaConparadaFinTest(){
+		linea.removeParada(parada3);
+		
+	}
 	
 	
 	
