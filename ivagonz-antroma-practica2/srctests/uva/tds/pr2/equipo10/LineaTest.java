@@ -237,6 +237,7 @@ public class LineaTest {
 
 	@Test
 	public void hasTrasbordoDirectoCorrectoTest() {
+		fail("Quitar en implementación");
 		DireccionGPS _direccion1 = new DireccionGPS(21.45, 31.50);
 		DireccionGPS _direccion2 = new DireccionGPS(30.5, 20.4);
 		DireccionGPS _direccion3 = new DireccionGPS(21.4498, 31.50);
@@ -251,6 +252,11 @@ public class LineaTest {
 		Linea _linea = new Linea(_identificador, _paradas);
 		linea.hasTrasbordoDirecto(_linea);
 		assertNotNull(_linea);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void hasTrasbordoDirectoConLineaNullTest() {
+		linea.hasTrasbordoDirecto(null);
 	}
 
 }
