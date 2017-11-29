@@ -71,7 +71,17 @@ public class Linea {
 
 	}
 
-	public void removeParada(Parada parada1) {
+	
+	/**
+	 * Elimina una parada de la linea, si la parada proporcionada no está, no hará nada
+	 * 
+	 * @param parada
+	 * 				parada que se elimina. Debe ser correcta:
+	 * 					no nula,
+	 * 					no debe ser la parada inicial ni la final.
+	 * @throws IllegalArgumentException si se incumplen las condiciones impuestas
+	 */
+	public void removeParada(Parada parada) {
 		// TODO Auto-generated method stub
 		
 	}
