@@ -179,7 +179,7 @@ public class LineaTest {
 		_paradas[0] = _parada1;
 		_paradas[1] = _parada2;
 		_paradas[2] = _parada3;
-		int _identificador = 1;
+		int _identificador = 2;
 		Linea _linea = new Linea(_identificador, _paradas);
 
 		linea.hasCorrespondencia(_linea);
@@ -192,7 +192,7 @@ public class LineaTest {
 	}
 
 	@Test
-	public void getParadasConCorrespondenciaTest() {
+	public void getParadasConCorrespondenciaCorrectoTest() {
 		fail("Quitar en implementación");
 		DireccionGPS _direccion1 = new DireccionGPS(20.45, 30.50);
 		DireccionGPS _direccion2 = new DireccionGPS(30.5, 20.4);
@@ -204,11 +204,35 @@ public class LineaTest {
 		_paradas[0] = _parada1;
 		_paradas[1] = _parada2;
 		_paradas[2] = _parada3;
-		int _identificador = 1;
+		int _identificador = 2;
 		Linea _linea = new Linea(_identificador, _paradas);
+		@SuppressWarnings("unused")
 		Parada paradasConCorrespondencia[] = linea.getParadasConCorrespondencia(_linea);
 		assertNotNull(_linea);
+		assertTrue(linea.hasCorrespondencia(_linea));
 
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void getParadasConCorrespondenciaLineaNullTest() {
+		linea.getParadasConCorrespondencia(null);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void getParadasConCorrespondenciaConLineaSinCorrespondenciaTest() {
+		DireccionGPS _direccion1 = new DireccionGPS(21.45, 31.50);
+		DireccionGPS _direccion2 = new DireccionGPS(31.5, 21.4);
+		DireccionGPS _direccion3 = new DireccionGPS(21.4498, 31.50);
+		Parada _parada1 = new Parada(_direccion1);
+		Parada _parada2 = new Parada(_direccion2);
+		Parada _parada3 = new Parada(_direccion3);
+		Parada _paradas[] = new Parada[3];
+		_paradas[0] = _parada1;
+		_paradas[1] = _parada2;
+		_paradas[2] = _parada3;
+		int _identificador = 2;
+		Linea _linea = new Linea(_identificador, _paradas);
+		linea.getParadasConCorrespondencia(_linea);
 	}
 
 }
