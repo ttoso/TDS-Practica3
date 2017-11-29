@@ -59,7 +59,7 @@ public class Linea {
 	}
 
 	/**
-	 * Añade una parada como inicio del recorrido.
+	 * Aï¿½ade una parada como inicio del recorrido.
 	 * 
 	 * @param parada
 	 *            parada que se aÃ±ade. Debe ser correcta: no nula estar a menos
@@ -69,6 +69,11 @@ public class Linea {
 
 		// TODO Auto-generated method stub
 
+	}
+
+	public void removeParada(Parada parada1) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

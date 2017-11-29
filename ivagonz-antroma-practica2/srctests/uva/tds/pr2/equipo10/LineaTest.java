@@ -123,5 +123,25 @@ public class LineaTest {
 		Parada parada = new Parada(direccionGPS);
 		linea.addParadaInicial(parada);
 	}
+	
+	
+	@Test
+	public void removeParadaCorrecto(){
+		linea.removeParada(parada1);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
