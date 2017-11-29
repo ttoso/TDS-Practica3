@@ -117,4 +117,9 @@ public class Linea {
 		return false;
 	}
 
+	public Parada[] getParadasConCorrespondencia(Linea linea) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
