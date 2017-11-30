@@ -2,9 +2,11 @@ package uva.tds.pr2.equipo10;
 
 import static org.junit.Assert.*;
 
-import org.junit.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
-public class LineaTest {
+public class LineaCorrespondenciasYTrasbordosTest {
 
 	private DireccionGPS direccion1;
 	private DireccionGPS direccion2;
@@ -46,127 +48,6 @@ public class LineaTest {
 	}
 
 	@Test
-	public void addParadaIntermediaCorrectoTest() {
-		fail("Cambiar");
-		DireccionGPS direccionGPS = new DireccionGPS(20.1, 31);
-		Parada parada = new Parada(direccionGPS);
-		int posicion = 1;
-		linea.addParadaIntermedia(parada, posicion);
-		assertNotNull(parada);
-		assertTrue(posicion > 0);
-		assertTrue(posicion < paradas.length - 1);
-	}
-
-	@Test(expected = NullPointerException.class)
-	public void addParadaIntermediaConParadaNullTest() {
-		int posicion = 1;
-		linea.addParadaIntermedia(null, posicion);
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void addParadaIntermediaConPosicionMenorDeCeroTest() {
-		DireccionGPS direccionGPS = new DireccionGPS(20.1, 31);
-		Parada parada = new Parada(direccionGPS);
-		int posicion = 0;
-		linea.addParadaIntermedia(parada, posicion);
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void addParadaIntermediaConPosicionMayorQueParadaFinalTest() {
-		DireccionGPS direccionGPS = new DireccionGPS(20.1, 31);
-		Parada parada = new Parada(direccionGPS);
-		int posicion = paradas.length - 1;
-		linea.addParadaIntermedia(parada, posicion);
-	}
-
-	@Test
-	public void addParadaFinalCorrectoTest() {
-		fail("Quitar en implementación");
-		DireccionGPS direccionGPS = new DireccionGPS(20.44989, 30.5);
-		Parada parada = new Parada(direccionGPS);
-		linea.addParadaFinal(parada);
-
-		assertNotNull(parada);
-		assertTrue(parada.getDistancia(paradas[0]) < 100);
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void addParadaFinalParadaNulaTest() {
-		linea.addParadaFinal(null);
-
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void addParadaFinalConParadaAMasDe100MetrosDeLaInicialSTest() {
-		DireccionGPS direccionGPS = new DireccionGPS(20.4509, 30.5);
-		Parada parada = new Parada(direccionGPS);
-		linea.addParadaFinal(parada);
-	}
-
-	@Test
-	public void addParadaInicialCorrectoTest() {
-		fail("Cambiar");
-		DireccionGPS direccionGPS = new DireccionGPS(20.44989, 30.5);
-		Parada parada = new Parada(direccionGPS);
-		linea.addParadaInicial(parada);
-		assertNotNull(parada);
-		assertTrue(paradas[paradas.length - 1].getDistancia(parada) < 100);
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void addParadaInicialConParadaNullTest() {
-		linea.addParadaInicial(null);
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void addParadaInicialConParadaAMasDistanciaDeCienTest() {
-		DireccionGPS direccionGPS = new DireccionGPS(20.44989, 30.5);
-		Parada parada = new Parada(direccionGPS);
-		linea.addParadaInicial(parada);
-	}
-
-	@Test
-	public void removeParadaCorrectoTest() {
-		fail("Quitar en implementación");
-		linea.removeParada(parada2);
-
-		assertNotNull(parada2);
-		assertNotEquals(paradas[0], parada2);
-		assertNotEquals(paradas[paradas.length - 1], parada2);
-
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void removeParadaNulaTest() {
-		linea.removeParada(null);
-
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void removeParadaConparadaInicialTest() {
-		linea.removeParada(parada1);
-
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void removeParadaConparadaFinTest() {
-		linea.removeParada(parada3);
-
-	}
-
-	@Test
-	public void hasParadaCercaCorrectoTest() {
-		fail("Quitar en implementación");
-		linea.hasParadaCerca(direccion2);
-		assertNotNull(direccion2);
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void hasParadaCercaConDireccionNullTest() {
-		linea.hasParadaCerca(direccion2);
-	}
-
-	@Test
 	public void hasCorrespondenciaCorrectoTest() {
 		fail("Quitar en implementación");
 		DireccionGPS _direccion1 = new DireccionGPS(20.45, 30.50);
@@ -182,7 +63,7 @@ public class LineaTest {
 		int _identificador = 2;
 		Linea _linea = new Linea(_identificador, _paradas);
 
-		linea.hasCorrespondencia(_linea);
+		assertTrue(linea.hasCorrespondencia(_linea));
 		assertNotNull(_linea);
 	}
 
@@ -206,11 +87,13 @@ public class LineaTest {
 		_paradas[2] = _parada3;
 		int _identificador = 2;
 		Linea _linea = new Linea(_identificador, _paradas);
-		@SuppressWarnings("unused")
+
 		Parada paradasConCorrespondencia[] = linea.getParadasConCorrespondencia(_linea);
+		Parada correspondencias[] = new Parada[] { _parada1, _parada2, _parada3 };
+
 		assertNotNull(_linea);
 		assertTrue(linea.hasCorrespondencia(_linea));
-
+		assertArrayEquals(correspondencias, paradasConCorrespondencia);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
@@ -250,7 +133,7 @@ public class LineaTest {
 		_paradas[2] = _parada3;
 		int _identificador = 2;
 		Linea _linea = new Linea(_identificador, _paradas);
-		linea.hasTrasbordoDirecto(_linea);
+		assertTrue(linea.hasTrasbordoDirecto(_linea));
 		assertNotNull(_linea);
 	}
 
@@ -266,6 +149,7 @@ public class LineaTest {
 		DireccionGPS _direccion2 = new DireccionGPS(30.5, 20.4);
 		DireccionGPS _direccion3 = new DireccionGPS(21.4498, 31.50);
 		Parada _parada1 = new Parada(_direccion1);
+
 		Parada _parada2 = new Parada(_direccion2);
 		Parada _parada3 = new Parada(_direccion3);
 		Parada _paradas[] = new Parada[3];
@@ -274,10 +158,12 @@ public class LineaTest {
 		_paradas[2] = _parada3;
 		int _identificador = 2;
 		Linea _linea = new Linea(_identificador, _paradas);
-		@SuppressWarnings("unused")
+
 		Parada paradasConCorrespondencia[] = linea.getParadasConTrasbordoDirecto(_linea);
 		assertNotNull(_linea);
 		assertTrue(linea.hasTrasbordoDirecto(_linea));
+		Parada trasbordos[] = new Parada[] { _parada2 };
+		assertArrayEquals(trasbordos, paradasConCorrespondencia);
 
 	}
 
@@ -313,13 +199,14 @@ public class LineaTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void checkDistanciaConPrimerParametroNullTest() {
-		fail("Quitar en implementación");
+
 		linea.checkDistancia(null, parada2);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void checkDistanciaConSegundoParametroNullTest() {
-		fail("Quitar en implementación");
+
 		linea.checkDistancia(parada1, null);
 	}
+
 }
