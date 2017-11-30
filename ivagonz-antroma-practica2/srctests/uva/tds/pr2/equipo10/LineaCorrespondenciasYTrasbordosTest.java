@@ -18,6 +18,8 @@ public class LineaCorrespondenciasYTrasbordosTest {
 	private int identificador;
 	private Linea linea;
 
+	private final double errorAdmisible = 0.001;
+
 	@Before
 	public void setUp() throws Exception {
 		direccion1 = new DireccionGPS(20.45, 30.50);
@@ -192,9 +194,10 @@ public class LineaCorrespondenciasYTrasbordosTest {
 	@Test
 	public void checkDistanciaCorrectoTest() {
 		fail("Quitar en implementación");
-		linea.checkDistancia(parada1, parada2);
+		int distancia = linea.checkDistancia(parada1, parada2);
 		assertNotNull(parada1);
 		assertNotNull(parada2);
+		assertEquals(1698851, distancia, errorAdmisible);
 	}
 
 	@Test(expected = IllegalArgumentException.class)

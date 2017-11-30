@@ -53,8 +53,7 @@ public class LineaGestionDeParadasTest {
 		int posicion = 1;
 		linea.addParadaIntermedia(parada, posicion);
 		assertFalse(linea.hasParadaNull());
-		assertTrue(posicion > 0);
-		assertTrue(posicion < paradas.length - 1);
+		assertEquals(linea.getParadas()[posicion], parada);
 	}
 
 	@Test(expected = NullPointerException.class)
@@ -87,7 +86,7 @@ public class LineaGestionDeParadasTest {
 		linea.addParadaFinal(parada);
 
 		assertFalse(linea.hasParadaNull());
-		assertTrue(parada.getDistancia(linea.getParadas()[0]) < 100);
+		assertEquals(linea.getParadas()[linea.getParadas().length - 1], parada);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
@@ -110,7 +109,7 @@ public class LineaGestionDeParadasTest {
 		Parada parada = new Parada(direccionGPS);
 		linea.addParadaInicial(parada);
 		assertFalse(linea.hasParadaNull());
-		assertTrue(linea.getParadas()[linea.getParadas().length - 1].getDistancia(parada) < 100);
+		assertEquals(linea.getParadas()[0], parada);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
@@ -131,8 +130,7 @@ public class LineaGestionDeParadasTest {
 		linea.removeParada(parada2);
 
 		assertFalse(linea.hasParadaNull());
-		assertNotEquals(linea.getParadas()[0], parada2);
-		assertNotEquals(linea.getParadas()[linea.getParadas().length - 1], parada2);
+		assertFalse(linea.hasParada(parada2));
 
 	}
 
@@ -157,7 +155,7 @@ public class LineaGestionDeParadasTest {
 	@Test
 	public void hasParadaCercaCorrectoTest() {
 		fail("Quitar en implementación");
-		linea.hasParadaCerca(direccion2);
+		assertTrue(linea.hasParadaCerca(direccion2));
 		assertNotNull(direccion2);
 	}
 
@@ -166,4 +164,13 @@ public class LineaGestionDeParadasTest {
 		linea.hasParadaCerca(direccion2);
 	}
 
+	@Test
+	public void hasParadaCorrectoTest() {
+		assertTrue(linea.hasParada(parada1));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void hasParadaConParadaNullTest() {
+		linea.hasParada(null);
+	}
 }

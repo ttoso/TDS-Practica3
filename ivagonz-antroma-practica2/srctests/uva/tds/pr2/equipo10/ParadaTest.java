@@ -13,6 +13,7 @@ public class ParadaTest {
 
 		Parada parada = new Parada(direccion);
 		assertNotNull(parada.getDireccion());
+		assertEquals(direccion, parada.getDireccion());
 	}
 
 	@Test(expected = IllegalArgumentException.class)

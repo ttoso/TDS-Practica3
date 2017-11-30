@@ -25,10 +25,9 @@ public class LineaConstructorTest {
 
 		Linea linea = new Linea(identificador, paradas);
 
-		assertTrue(linea.getId() > 0);
+		assertEquals(identificador, linea.getId(), errorAdmisible);
 		assertNotNull(linea.getParadas());
-		assertTrue(linea.getParadas().length >= 3);
-		assertTrue(linea.getParadas()[0].getDistancia(paradas[paradas.length - 1]) < 100);
+		assertArrayEquals(paradas, linea.getParadas());
 		assertFalse(linea.hasParadaNull());
 
 	}

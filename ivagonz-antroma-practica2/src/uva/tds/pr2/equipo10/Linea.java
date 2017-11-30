@@ -215,4 +215,17 @@ public class Linea {
 		return false;
 	}
 
+	/**
+	 * Comprueba si la Linea tiene una Parada.
+	 * 
+	 * @param parada
+	 *            Parada a comprobar dentro de la linea. Debe ser correcta:No
+	 *            nula.
+	 * @return true si la Linea tiene la Parada, false en caso contrario.
+	 */
+	public boolean hasParada(Parada parada) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

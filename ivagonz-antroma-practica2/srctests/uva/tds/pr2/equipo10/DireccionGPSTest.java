@@ -15,10 +15,8 @@ public class DireccionGPSTest {
 		double longitud = 1.0;
 
 		DireccionGPS direccion = new DireccionGPS(latitud, longitud);
-		assertTrue(direccion.getLatitud() >= -180);
-		assertTrue(direccion.getLatitud() <= 180);
-		assertTrue(direccion.getLongitud() >= -180);
-		assertTrue(direccion.getLongitud() <= 180);
+		assertEquals(latitud, direccion.getLatitud(), errorAdmisible);
+		assertEquals(longitud, direccion.getLongitud(), errorAdmisible);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
