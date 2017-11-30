@@ -6,18 +6,19 @@ import org.junit.Test;
 
 public class DireccionGPSTest {
 
+	private final double errorAdmisible = 0.001;
+
 	@Test
 	public void constructorCorrectoTest() {
 		fail("Quitar en implementacion");
 		double latitud = 1.0;
 		double longitud = 1.0;
 
-		@SuppressWarnings("unused")
 		DireccionGPS direccion = new DireccionGPS(latitud, longitud);
-		assertTrue(latitud >= -180);
-		assertTrue(latitud <= 180);
-		assertTrue(longitud >= -180);
-		assertTrue(longitud <= 180);
+		assertTrue(direccion.getLatitud() >= -180);
+		assertTrue(direccion.getLatitud() <= 180);
+		assertTrue(direccion.getLongitud() >= -180);
+		assertTrue(direccion.getLongitud() <= 180);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
@@ -46,6 +47,24 @@ public class DireccionGPSTest {
 		double latitud = 1.0;
 		@SuppressWarnings("unused")
 		DireccionGPS direccion = new DireccionGPS(latitud, 180.01);
+	}
+
+	@Test
+	public void getLatitudCorrectoTest() {
+		double latitud = 1.0;
+		double longitud = 1.0;
+
+		DireccionGPS direccion = new DireccionGPS(latitud, longitud);
+		assertEquals(latitud, direccion.getLatitud(), errorAdmisible);
+	}
+
+	@Test
+	public void getLongitudCorrectoTest() {
+		double latitud = 1.0;
+		double longitud = 1.0;
+
+		DireccionGPS direccion = new DireccionGPS(latitud, longitud);
+		assertEquals(longitud, direccion.getLongitud(), errorAdmisible);
 	}
 
 }

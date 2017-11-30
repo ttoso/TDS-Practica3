@@ -1,8 +1,8 @@
 package uva.tds.pr2.equipo10;
 
 /**
- * Implementación de una DirecciónGPS para la segunda práctica de la
- * asignatura TDS.
+ * Implementación de una DirecciónGPS para la segunda práctica de la asignatura
+ * TDS.
  * 
  * @author ivagonz
  * @author antroma
@@ -24,6 +24,23 @@ public class DireccionGPS {
 	 */
 	public DireccionGPS(double latitud, double longitud) {
 		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @return latitud de la DireccionGPS.
+	 */
+	public int getLatitud() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/**
+	 * 
+	 * @return longitud de la DireccionGPS.
+	 */
+	public int getLongitud() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
