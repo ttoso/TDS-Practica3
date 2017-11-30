@@ -186,4 +186,33 @@ public class Linea {
 		return 0;
 	}
 
+	/**
+	 * 
+	 * @return Identificador de this.
+	 */
+	public int getId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/**
+	 * 
+	 * @return Vector de Paradas de this.
+	 */
+	public Parada[] getParadas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/**
+	 * Comprobará si la Linea tiene alguna Parada null, para informar al
+	 * usuario.
+	 * 
+	 * @return true si tiene alguna Parada null, false en caso contrario.
+	 */
+	public boolean hasParadaNull() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
