@@ -41,6 +41,13 @@ public class Red {
 		return false;
 	}
 
+	/**
+	 * Agrega una Linea dentro de la Red de buses.
+	 * 
+	 * @param linea
+	 *            Linea a agregar en la Red. Debe ser correcta: No nula, no debe
+	 *            estar ya en la Red.
+	 */
 	public void addLinea(Linea linea) {
 		// TODO Auto-generated method stub
 
