@@ -106,4 +106,16 @@ public class RedConstructorTest {
 		assertArrayEquals(lineas, red.getLineas());
 	}
 
+	@Test
+	public void secuenciaTest() {
+		fail("Quitar en implementacion");
+		Linea lineas[] = new Linea[] { linea, linea2 };
+		Red red = new Red(lineas);
+		red.addLinea(linea);
+		red.removeLinea(linea);
+		red.getDistanciaParadas(parada1, parada2);
+		red.getLinea(0);
+		red.infoParadas(direccion1, 100);
+	}
+
 }

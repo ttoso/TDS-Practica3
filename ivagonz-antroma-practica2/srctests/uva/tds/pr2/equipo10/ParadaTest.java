@@ -45,4 +45,14 @@ public class ParadaTest {
 		parada.getDistancia(null);
 	}
 
+	@Test
+	public void secuenciaTest() {
+		fail("Quitar en implementacion");
+		DireccionGPS direccion = new DireccionGPS(5.1, -5.1);
+		Parada parada = new Parada(direccion);
+		Parada parada2 = new Parada(direccion);
+		parada.getDireccion();
+		parada.getDistancia(parada2);
+	}
+
 }

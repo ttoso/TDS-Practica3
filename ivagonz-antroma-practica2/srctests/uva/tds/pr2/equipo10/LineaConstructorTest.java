@@ -144,4 +144,27 @@ public class LineaConstructorTest {
 		assertArrayEquals(paradas, linea.getParadas());
 	}
 
+	@Test
+	public void secuenciaTest() {
+		fail("Quitar en implementacion");
+		DireccionGPS direccion1 = new DireccionGPS(20.45, 30.50);
+		DireccionGPS direccion2 = new DireccionGPS(30.5, 20.4);
+		DireccionGPS direccion3 = new DireccionGPS(20.4498, 30.50);
+		Parada parada1 = new Parada(direccion1);
+		Parada parada2 = new Parada(direccion2);
+		Parada parada3 = new Parada(direccion3);
+		Parada[] paradas = new Parada[3];
+		paradas[0] = parada1;
+		paradas[1] = parada2;
+		paradas[2] = parada3;
+		int identificador = 1;
+
+		Linea linea = new Linea(identificador, paradas);
+		linea.addParadaIntermedia(parada1, 2);
+		linea.removeParada(parada1);
+		linea.hasParadaCerca(direccion1);
+		linea.hasCorrespondencia(linea);
+		linea.getParadasConTrasbordoDirecto(linea);
+	}
+
 }
