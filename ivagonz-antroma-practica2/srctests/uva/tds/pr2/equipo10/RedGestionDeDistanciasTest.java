@@ -101,4 +101,13 @@ public class RedGestionDeDistanciasTest {
 		red.infoParadas(direccion1, radio);
 	}
 
+	@Test
+	public void getDistanciaParadasCorrectoTest() {
+		@SuppressWarnings("unused")
+		int distancia = red.getDistanciaParadas(parada1, parada5);
+		assertNotNull(parada1);
+		assertNotNull(parada5);
+		assertEquals(6887904, red.getDistanciaParadas(parada1, parada5));
+	}
+
 }

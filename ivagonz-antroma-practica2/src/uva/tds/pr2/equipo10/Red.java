@@ -105,4 +105,9 @@ public class Red {
 		return null;
 	}
 
+	public int getDistanciaParadas(Parada parada1, Parada parada2) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
