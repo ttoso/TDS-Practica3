@@ -46,4 +46,9 @@ public class Red {
 
 	}
 
+	public Linea getLinea(int posicion) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
