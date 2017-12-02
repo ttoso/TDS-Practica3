@@ -82,8 +82,23 @@ public class RedGestionDeDistanciasTest {
 
 	@Test
 	public void infoParadasCorrectoTest() {
-		red.infoParadas(direccion1, 200);
+		int radio = 200;
+		Linea info[] = new Linea[] { linea, linea2 };
+		Linea infoVuelta[] = red.infoParadas(direccion1, radio);
+		assertNotNull(direccion1);
+		assertArrayEquals(info, infoVuelta);
+	}
 
+	@Test(expected = IllegalArgumentException.class)
+	public void infoParadasConDireccionNullTest() {
+		int radio = 200;
+		red.infoParadas(null, radio);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void infoParadasConRadioNegativoTest() {
+		int radio = -1;
+		red.infoParadas(direccion1, radio);
 	}
 
 }
