@@ -8,7 +8,6 @@ public class ParadaTest {
 
 	@Test
 	public void constructorCorrectoTest() {
-		fail("Quitar en implentaci�n");
 		DireccionGPS direccion = new DireccionGPS(5.1, -5.1);
 
 		Parada parada = new Parada(direccion);

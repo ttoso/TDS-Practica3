@@ -10,7 +10,6 @@ public class DireccionGPSTest {
 
 	@Test
 	public void constructorCorrectoTest() {
-		fail("Quitar en implementacion");
 		double latitud = 1.0;
 		double longitud = 1.0;
 

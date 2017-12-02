@@ -79,4 +79,24 @@ public class RedTest {
 		assertFalse(red.hasLineaNull());
 	}
 
+	@Test(expected = IllegalArgumentException.class)
+	public void constructorConLineasNullTest() {
+		@SuppressWarnings("unused")
+		Red red = new Red(null);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void constructorConLineaNullTest() {
+		Linea lineas[] = new Linea[] { linea, null };
+		@SuppressWarnings("unused")
+		Red red = new Red(lineas);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void constructorConLineasDeTamanioMenorDe2Test() {
+		Linea lineas[] = new Linea[] { linea };
+		@SuppressWarnings("unused")
+		Red red = new Red(lineas);
+	}
+
 }
