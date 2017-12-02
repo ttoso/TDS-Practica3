@@ -108,7 +108,15 @@ public class RedTest {
 	public void addLineaConLineaYaExistenteEnLaRedTest() {
 		red.addLinea(linea);
 	}
-	
-	
+
+	@Test
+	public void getLineaCorrectoTest() {
+		assertEquals(linea, red.getLinea(0));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void getLineaConPosicionNegativaTest() {
+		red.getLinea(-1);
+	}
 
 }

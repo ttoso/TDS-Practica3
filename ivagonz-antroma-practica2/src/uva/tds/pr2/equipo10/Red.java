@@ -53,6 +53,15 @@ public class Red {
 
 	}
 
+	/**
+	 * Obtiene una Linea de la Red mediante la posición indicada como parámetro.
+	 * 
+	 * @param posicion
+	 *            Entero que indica la posición de la Linea a obtener dentro de
+	 *            la Red.Debe ser correcto: Positiva.
+	 * @return La Linea en la posición dada de existir Linea en la posición,
+	 *         null en caso contrario.
+	 */
 	public Linea getLinea(int posicion) {
 		// TODO Auto-generated method stub
 		return null;
