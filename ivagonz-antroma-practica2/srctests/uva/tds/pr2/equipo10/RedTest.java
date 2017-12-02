@@ -119,4 +119,10 @@ public class RedTest {
 		red.getLinea(-1);
 	}
 
+	@Test
+	public void removeLineaCorrectoTest() {
+		red.removeLinea(linea);
+		assertNotNull(linea);
+	}
+
 }

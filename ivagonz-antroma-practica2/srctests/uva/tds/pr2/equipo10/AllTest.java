@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ DireccionGPSTest.class, ParadaTest.class, RedConstructorTest.class })
+@SuiteClasses({ DireccionGPSTest.class, ParadaTest.class, RedGestionDeLineasTest.class })
 
 public class AllTest {
 

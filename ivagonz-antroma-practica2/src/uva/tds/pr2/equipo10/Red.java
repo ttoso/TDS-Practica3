@@ -67,4 +67,9 @@ public class Red {
 		return null;
 	}
 
+	public void removeLinea(Linea linea) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class RedConstructorTest {
+public class RedGestionDeLineasTest {
 
 	private DireccionGPS direccion1;
 	private DireccionGPS direccion2;
