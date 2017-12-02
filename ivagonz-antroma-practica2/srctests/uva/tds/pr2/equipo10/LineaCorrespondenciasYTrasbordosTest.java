@@ -202,7 +202,6 @@ public class LineaCorrespondenciasYTrasbordosTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void checkDistanciaConPrimerParametroNullTest() {
-
 		linea.checkDistancia(null, parada2);
 	}
 

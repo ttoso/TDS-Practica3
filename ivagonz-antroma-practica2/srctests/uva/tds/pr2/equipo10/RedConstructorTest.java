@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class RedTest {
+public class RedConstructorTest {
 
 	private DireccionGPS direccion1;
 	private DireccionGPS direccion2;
@@ -24,9 +24,6 @@ public class RedTest {
 	private Parada paradas2[];
 	private int identificador2;
 	private Linea linea2;
-
-	private Linea[] lineas;
-	private Red red;
 
 	@Before
 	public void setUp() throws Exception {
@@ -52,9 +49,6 @@ public class RedTest {
 		paradas2[2] = parada4;
 		identificador2 = 2;
 		linea2 = new Linea(identificador2, paradas2);
-
-		lineas = new Linea[] { linea, linea2 };
-		red = new Red(lineas);
 	}
 
 	@After
@@ -68,21 +62,41 @@ public class RedTest {
 		paradas = null;
 		identificador = 0;
 		linea = null;
-
 		parada6 = null;
 		parada5 = null;
 		parada4 = null;
 		paradas2 = null;
 		identificador2 = 0;
 		linea2 = null;
-
-		lineas = null;
-		red = null;
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void constructorCorrectoTest() {
+		Linea lineas[] = new Linea[] { linea, linea2 };
+		Red red = new Red(lineas);
+		assertNotNull(lineas);
+		assertArrayEquals(lineas, red.getLineas());
+		assertFalse(red.hasLineaNull());
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void constructorConLineasNullTest() {
+		@SuppressWarnings("unused")
+		Red red = new Red(null);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void constructorConLineaNullTest() {
+		Linea lineas[] = new Linea[] { linea, null };
+		@SuppressWarnings("unused")
+		Red red = new Red(lineas);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void constructorConLineasDeTamanioMenorDe2Test() {
+		Linea lineas[] = new Linea[] { linea };
+		@SuppressWarnings("unused")
+		Red red = new Red(lineas);
 	}
 
 }
