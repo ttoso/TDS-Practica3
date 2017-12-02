@@ -85,7 +85,22 @@ public class Red {
 
 	}
 
-	public Linea[] infoParadas(DireccionGPS direccion1, int radio) {
+	/**
+	 * Obtiene un vector de Lineas que tienen Parada cerca de una Direccion y un
+	 * radio dados.
+	 * 
+	 * @param direccion
+	 *            DireccionGPS en la que debe haber Paradas cerca.Debe ser
+	 *            correcta: No nula.
+	 * @param radio
+	 *            Radio para buscar Paradas dentro de la Red.Debe ser correcto:
+	 *            Positivo.
+	 * @return Vector con las Lineas que tienen Parada cerca de la Direccion.
+	 * @throws IllegalArgumentException
+	 *             en caso de incumplir alguna de las condiciones impuestas a
+	 *             los parámetros.
+	 */
+	public Linea[] infoParadas(DireccionGPS direccion, int radio) {
 		// TODO Auto-generated method stub
 		return null;
 	}
