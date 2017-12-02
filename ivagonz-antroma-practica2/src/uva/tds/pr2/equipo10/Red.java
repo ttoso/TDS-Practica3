@@ -22,14 +22,28 @@ public class Red {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * 
+	 * @return vector de Lineas de la Red.
+	 */
 	public Linea[] getLineas() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/**
+	 * Comprueba si la Red tiene alguna Linea nula.
+	 * 
+	 * @return true si tiene al menos una Linea nula, false en caso contrario.
+	 */
 	public boolean hasLineaNull() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	public void addLinea(Linea linea) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

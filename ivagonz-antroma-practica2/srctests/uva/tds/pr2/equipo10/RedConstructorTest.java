@@ -99,4 +99,11 @@ public class RedConstructorTest {
 		Red red = new Red(lineas);
 	}
 
+	@Test
+	public void getLineasCorrectoTest() {
+		Linea lineas[] = new Linea[] { linea, linea2 };
+		Red red = new Red(lineas);
+		assertArrayEquals(lineas, red.getLineas());
+	}
+
 }
