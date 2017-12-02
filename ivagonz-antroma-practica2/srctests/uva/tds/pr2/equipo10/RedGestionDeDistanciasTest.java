@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class RedTest {
+public class RedGestionDeDistanciasTest {
 
 	private DireccionGPS direccion1;
 	private DireccionGPS direccion2;
@@ -81,48 +81,9 @@ public class RedTest {
 	}
 
 	@Test
-	public void addLineaCorrectoTest() {
-		DireccionGPS d1 = new DireccionGPS(20.45, 30.50);
-		DireccionGPS d2 = new DireccionGPS(30.5, 20.4);
-		DireccionGPS d3 = new DireccionGPS(20.4498, 30.50);
-		Parada p1 = new Parada(d1);
-		Parada p2 = new Parada(d2);
-		Parada p3 = new Parada(d3);
-		Parada p[] = new Parada[3];
-		p[0] = p1;
-		p[1] = p2;
-		p[2] = p3;
-		int identificador3 = 3;
-		Linea linea3 = new Linea(identificador3, p);
-		red.addLinea(linea3);
-		assertNotNull(linea3);
-		assertEquals(linea3, red.getLinea(2));
-	}
+	public void infoParadasCorrectoTest() {
+		red.infoParadas(direccion1, 200);
 
-	@Test(expected = IllegalArgumentException.class)
-	public void addLineaConLineaNullTest() {
-		red.addLinea(null);
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void addLineaConLineaYaExistenteEnLaRedTest() {
-		red.addLinea(linea);
-	}
-
-	@Test
-	public void getLineaCorrectoTest() {
-		assertEquals(linea, red.getLinea(0));
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void getLineaConPosicionNegativaTest() {
-		red.getLinea(-1);
-	}
-
-	@Test
-	public void removeLineaCorrectoTest() {
-		red.removeLinea(linea);
-		assertNotNull(linea);
 	}
 
 }

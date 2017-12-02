@@ -47,6 +47,8 @@ public class Red {
 	 * @param linea
 	 *            Linea a agregar en la Red. Debe ser correcta: No nula, no debe
 	 *            estar ya en la Red.
+	 * @throws IllegalArgumentException
+	 *             en caso de incumplir las condiciones impuestas al parámetro.
 	 */
 	public void addLinea(Linea linea) {
 		// TODO Auto-generated method stub
@@ -61,15 +63,31 @@ public class Red {
 	 *            la Red.Debe ser correcto: Positiva.
 	 * @return La Linea en la posición dada de existir Linea en la posición,
 	 *         null en caso contrario.
+	 * @throws IllegalArgumentException
+	 *             en caso de incumplir las condiciones impuestas al parámetro.
 	 */
 	public Linea getLinea(int posicion) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/**
+	 * Elimina una Linea de la Red de autobuses.
+	 * 
+	 * @param linea
+	 *            Linea a borrar.Debe ser correcta: No nula y debe estar dentro
+	 *            de la Red.
+	 * @throws IllegalArgumentException
+	 *             en caso de incumplir las condiciones impuestas al parámetro.
+	 */
 	public void removeLinea(Linea linea) {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	public Linea[] infoParadas(DireccionGPS direccion1, int radio) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
