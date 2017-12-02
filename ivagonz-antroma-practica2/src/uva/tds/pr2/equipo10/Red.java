@@ -105,6 +105,18 @@ public class Red {
 		return null;
 	}
 
+	/**
+	 * Obtiene la distancia en metros entre dos Paradas de la Red.
+	 * 
+	 * @param parada1
+	 *            Primera Parada a comprobar. Debe ser correcta: No nula.
+	 * @param parada2
+	 *            Segunda Parada a comprobar. Debe ser correcta: No nula.
+	 * @return La distancia en metros entre las 2 Paradas.
+	 * @throws IllegalArgumentException
+	 *             si se incumple alguna de las condiciones impuestas a los
+	 *             parámetros.
+	 */
 	public int getDistanciaParadas(Parada parada1, Parada parada2) {
 		// TODO Auto-generated method stub
 		return 0;

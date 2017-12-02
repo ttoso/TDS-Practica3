@@ -110,4 +110,14 @@ public class RedGestionDeDistanciasTest {
 		assertEquals(6887904, red.getDistanciaParadas(parada1, parada5));
 	}
 
+	@Test(expected = IllegalArgumentException.class)
+	public void getDistanciaConPrimerParametroNullTest() {
+		red.getDistanciaParadas(null, parada5);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void getDistanciaConSegundoParametroNullTest() {
+		red.getDistanciaParadas(parada1, null);
+	}
+
 }
