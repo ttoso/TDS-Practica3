@@ -1,8 +1,8 @@
 package uva.tds.pr2.equipo10;
 
 /**
- * Implementacion basica de una linea de buses
- * 
+ * Implementación basica de una linea de buses
+ *
  * @author antroma
  * @author ivagonz
  *
@@ -11,7 +11,7 @@ public class Linea {
 
 	/**
 	 * Constructor de la clase linea
-	 * 
+	 *
 	 * @param identificador
 	 *            Identificadeor de la linea. Debe ser correcto: identificador
 	 *            positivo
@@ -32,7 +32,7 @@ public class Linea {
 
 	/**
 	 * Añade Paradas intermedias a la l�nea.
-	 * 
+	 *
 	 * @param parada
 	 *            Parada a a�adir. Debe ser correcta: No nula.
 	 * @param posicion
@@ -49,7 +49,7 @@ public class Linea {
 
 	/**
 	 * Añade una parada como final del recorrido
-	 * 
+	 *
 	 * @param parada
 	 *            parada que se añade. Debe ser correcta: no nula estar a menos
 	 *            de 100 metros de la parada inicial.
@@ -60,7 +60,7 @@ public class Linea {
 
 	/**
 	 * A�ade una parada como inicio del recorrido.
-	 * 
+	 *
 	 * @param parada
 	 *            parada que se añade. Debe ser correcta: no nula estar a menos
 	 *            de 100 metros de la parada final.
@@ -74,7 +74,7 @@ public class Linea {
 	/**
 	 * Elimina una parada de la linea, si la parada proporcionada no está, no
 	 * hará nada
-	 * 
+	 *
 	 * @param parada
 	 *            parada que se elimina. Debe ser correcta: no nula, no debe ser
 	 *            la parada inicial ni la final.
@@ -88,7 +88,7 @@ public class Linea {
 
 	/**
 	 * Comprueba si la Linea tiene una Parada cerca de la direccion pasada.
-	 * 
+	 *
 	 * @param direccion2
 	 *            DireccionGPS a comprobar.Debe ser correcto: No ser null.
 	 * @return true si tiene una Parada a menos de 200m de la Direccion pasada,
@@ -104,7 +104,7 @@ public class Linea {
 	/**
 	 * Comprueba si la Linea pasada como argumento tiene correspondencia con
 	 * this.
-	 * 
+	 *
 	 * @param linea
 	 *            Linea a comparar con this. Tendrá correspondencia si tiene una
 	 *            Parada a menos de 200 metros de una Parada de this. Tiene que
@@ -122,7 +122,7 @@ public class Linea {
 	/**
 	 * Da información sobre las Paradas que tienen correspondencia de linea y
 	 * this.
-	 * 
+	 *
 	 * @param linea
 	 *            Linea a comparar con this. Debe ser correcta: No debe ser null
 	 *            y debe tener correspondencia con this.
@@ -139,7 +139,7 @@ public class Linea {
 	/**
 	 * Comprueba si la Linea pasada como parámetro tiene trasbordo directa con
 	 * this.
-	 * 
+	 *
 	 * @param linea
 	 *            Linea a comparar con this. Debe ser correcta: No nula.
 	 * @return true si la Linea tiene trasbordo directo con this, false en caso
@@ -155,7 +155,7 @@ public class Linea {
 	/**
 	 * Obtiene un vector de Paradas con trasbordo directo entre Linea y this, si
 	 * linea tiene trasbordo directo con this.
-	 * 
+	 *
 	 * @param linea
 	 *            Linea a comparar con this, para obtener las Paradas con
 	 *            trasbordo directo. Debe ser correcta: No nula y tiene que
@@ -171,7 +171,7 @@ public class Linea {
 
 	/**
 	 * Comprobará la distancia entre 2 Paradas de la Linea.
-	 * 
+	 *
 	 * @param parada1
 	 *            Primera Parada a comprobar. Debe ser correcta: No nula.
 	 * @param parada2
@@ -187,7 +187,7 @@ public class Linea {
 	}
 
 	/**
-	 * 
+	 *
 	 * @return Identificador de this.
 	 */
 	public int getId() {
@@ -196,7 +196,7 @@ public class Linea {
 	}
 
 	/**
-	 * 
+	 *
 	 * @return Vector de Paradas de this.
 	 */
 	public Parada[] getParadas() {
@@ -207,7 +207,7 @@ public class Linea {
 	/**
 	 * Comprobará si la Linea tiene alguna Parada null, para informar al
 	 * usuario.
-	 * 
+	 *
 	 * @return true si tiene alguna Parada null, false en caso contrario.
 	 */
 	public boolean hasParadaNull() {
@@ -217,7 +217,7 @@ public class Linea {
 
 	/**
 	 * Comprueba si la Linea tiene una Parada.
-	 * 
+	 *
 	 * @param parada
 	 *            Parada a comprobar dentro de la linea. Debe ser correcta:No
 	 *            nula.

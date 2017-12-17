@@ -3,7 +3,7 @@ package uva.tds.pr2.equipo10;
 /**
  * Implementación de una DirecciónGPS para la segunda práctica de la asignatura
  * TDS.
- * 
+ *
  * @author ivagonz
  * @author antroma
  */
@@ -11,7 +11,7 @@ public class DireccionGPS {
 
 	/**
 	 * Constructor de una dirección GPS.
-	 * 
+	 *
 	 * @param latitud
 	 *            Número que indica la latitud de la dirección. Debe ser
 	 *            correcto: >=-180 && <=180.
@@ -35,8 +35,8 @@ public class DireccionGPS {
 	}
 
 	/**
-	 * 
-	 * @return longitud de la DireccionGPS.
+	 *
+	 * @return longitud de la DireccionGPS .
 	 */
 	public int getLongitud() {
 		// TODO Auto-generated method stub
