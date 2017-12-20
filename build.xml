@@ -27,7 +27,7 @@
 
 	<!-- Objetivo ejecutarTestsTDD -->
 	<target name="ejecutarTestsTDDyCajaNegra" description="pruebas TDD y de caja negra" depends="ejecutarTestsTDDyCajaNegra_unix" />
-	<target name="ejecutarTestsTDDyCajaNegra_unix" description="ejecutarTestsTDDyCajaNegra unix" if="isUnix">
+	<target name="ejecutarTestsTDDyCajaNegra_unix" description="ejecutarTestsTDDyCajaNegra unix">
 		<exec dir="." executable="sh">
 			<arg line="-c 'mvn test -P Unit'" />
 		</exec>
@@ -35,7 +35,7 @@
 
 	<!-- Objetivo ejecutarTestEnAislamiento -->
 	<target name="ejecutarTestEnAislamiento" description="pruebas de caja blanca en aislamiento" depends="ejecutarTestEnAislamiento_unix" />
-	<target name="ejecutarTestEnAislamiento_unix" description="ejecutarTestEnAislamiento unix" if="isUnix">
+	<target name="ejecutarTestEnAislamiento_unix" description="ejecutarTestEnAislamiento unix">
 		<exec dir="." executable="sh">
 			<arg line="-c 'mvn test -P Isolation'" />
 		</exec>
@@ -43,7 +43,7 @@
 
 	<!-- Objetivo ejecutarPruebasSecuencia -->
 	<target name="ejecutarPruebasSecuencia" description="caja negra, pruebas de secuencia" depends="ejecutarPruebasSecuencia_unix" />
-	<target name="ejecutarPruebasSecuencia_unix" description="ejecutarPruebasSecuencia unix" if="isUnix">
+	<target name="ejecutarPruebasSecuencia_unix" description="ejecutarPruebasSecuencia unix">
 		<exec dir="." executable="sh">
 			<arg line="-c 'mvn test -P Sequences'" />
 		</exec>
@@ -51,7 +51,7 @@
 
 	<!-- Objetivo obtenerInformeCobertura -->
 	<target name="obtenerInformeCobertura" description="obtener informes de cobertura" depends="compilar, obtenerInformeCobertura_unix" />
-	<target name="obtenerInformeCobertura_unix" description="obtenerInformeCobertura Unix" if="isUnix" depends="prepare-agent_unix">
+	<target name="obtenerInformeCobertura_unix" description="obtenerInformeCobertura Unix" depends="prepare-agent_unix">
 		<exec dir="." executable="sh">
 			<arg line="-c 'mvn compile test-compile'" />
 		</exec>
@@ -59,7 +59,7 @@
 			<arg line="-c 'mvn -X -Djacoco.dataFile=${jacocoagent} -Djacoco.outputDirectory=./jacoco_ut org.jacoco:jacoco-maven-plugin:report'" />
 		</exec>
 	</target>
-	<target name="prepare-agent_unix" if="isUnix" unless="jacoco-agent-present">
+	<target name="prepare-agent_unix" unless="jacoco-agent-present">
 		<exec dir="." executable="sh">
 			<arg line="-c 'mvn -Djacoco.destFile=${jacocoagent} clean org.jacoco:jacoco-maven-plugin:0.7.8:prepare-agent install'" />
 		</exec>
@@ -67,7 +67,7 @@
 
 	<!-- Objetivo medidas -->
 	<target name="medidas" description="obtener informe sobre medidas" depends="obtenerInformeCobertura, medidas_unix" />
-	<target name="medidas_unix" description="medidas Unix" if="isUnix">
+	<target name="medidas_unix" description="medidas Unix">
 		<exec dir="." executable="sh">
 			<arg line="-c 'mvn -P Unit,Integration jxr:jxr pmd:pmd sonar:sonar -Dsonar.host.url=https://sonarqube.inf.uva.es/ -Dsonar.login=${env.SONAR_USER_TOKEN} -Dsonar.analysis.mode=publish -Dsonar.issuesReport.console.enable=true -Dsonar.jacoco.reportPath=target/coverage/jacoco.exec -Dsonar.junit.reportPaths=target/surefire-reports'" />
 		</exec>
@@ -75,7 +75,7 @@
 
 	<!-- Objetivo documentar -->
 	<target name="documentar" description="genera el site de la documentación del proyecto" depends="documentar_unix" />
-	<target name="documentar_unix" description="documentar en Unix" if="isUnix">
+	<target name="documentar_unix" description="documentar en Unix">
 		<exec dir="." executable="sh">
 			<arg line="-c 'mvn site'" />
 		</exec>
@@ -83,7 +83,7 @@
 
 	<!-- Objetivo limpiar -->
 	<target name="limpiar" description="Elimina archivos innecesarios" depends="limpiar_unix" />
-	<target name="limpiar_unix" description="limpiar en Unix" if="isUnix">
+	<target name="limpiar_unix" description="limpiar en Unix">
 		<exec dir="." executable="sh">
 			<arg line="-c 'mvn clean'" />
 		</exec>
