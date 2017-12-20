@@ -23,7 +23,7 @@ public class DireccionGPS {
 	 *             los argumentos del constructor.
 	 */
 	public DireccionGPS(double latitud, double longitud) {
-		// TODO Auto-generated constructor stub
+		int a = 0;
 	}
 
 	/**
