@@ -77,7 +77,7 @@
 	<target name="documentar" description="genera el site de la documentación del proyecto" depends="documentar_unix" />
 	<target name="documentar_unix" description="documentar en Unix">
 		<exec dir="." executable="sh">
-			<arg line="-c 'mvn site'" />
+			<arg line="-c 'mvn javadoc:javadoc'" />
 		</exec>
 	</target>
 
