@@ -24,6 +24,29 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<profiles>
+		<profile>
+			<id>Unit</id>
+			<properties>
+				<testcase.groups>uva.tds.pr2.equipo10.Unit</testcase.groups>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>Isolation</id>
+			<properties>
+				<testcase.groups>uva.tds.pr2.equipo10.Isolation</testcase.groups>
+			</properties>
+		</profile>
+		<profile>
+			<id>Integration</id>
+			<properties>
+				<testcase.groups>uva.tds.pr2.equipo10.Integration</testcase.groups>
+			</properties>
+		</profile>
+	</profiles>
 	<build>
 		<pluginManagement>
 			<plugins>

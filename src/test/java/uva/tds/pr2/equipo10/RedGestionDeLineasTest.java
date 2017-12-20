@@ -28,6 +28,7 @@ public class RedGestionDeLineasTest {
 	private Linea[] lineas;
 	private Red red;
 
+
 	@Before
 	public void setUp() throws Exception {
 		direccion1 = new DireccionGPS(20.45, 30.50);
@@ -121,7 +122,7 @@ public class RedGestionDeLineasTest {
 
 	@Test
 	public void removeLineaCorrectoTest() {
-		fail("Quitar en implementación");
+		fail("Quitar en implementaciï¿½n");
 		red.removeLinea(linea);
 		assertNotNull(linea);
 	}
