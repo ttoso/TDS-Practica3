@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
 @Category({Unit.class})
-public class DireccionGPSTest {
+public class Prueba {
     @Test
 	public void constructorCorrectoTest() {
         
