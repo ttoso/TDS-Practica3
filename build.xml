@@ -70,7 +70,7 @@
 	<target name="medidas" description="obtener informe sobre medidas" depends="obtenerInformeCobertura, medidas_unix" />
 	<target name="medidas_unix" description="medidas Unix">
 		<exec dir="." executable="sh">
-			<arg line="-c 'mvn -P Unit,Integration jxr:jxr pmd:pmd sonar:sonar -Dsonar.host.url=https://sonarqube.inf.uva.es/ -Dsonar.login=${SONAR_USER_TOKEN} -Dsonar.analysis.mode=publish -Dsonar.issuesReport.console.enable=true -Dsonar.jacoco.reportPath=target/coverage/jacoco.exec -Dsonar.junit.reportPaths=target/surefire-reports'" />
+			<arg line="-c 'mvn -P Unit,Integration jxr:jxr pmd:pmd sonar:sonar -Dsonar.host.url=https://sonarqube.inf.uva.es/ -Dsonar.login=${SONAR_USER_TOKEN.value} -Dsonar.analysis.mode=publish -Dsonar.issuesReport.console.enable=true -Dsonar.jacoco.reportPath=target/coverage/jacoco.exec -Dsonar.junit.reportPaths=target/surefire-reports'" />
 		</exec>
 	</target>
 
