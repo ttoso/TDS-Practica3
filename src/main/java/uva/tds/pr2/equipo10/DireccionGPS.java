@@ -1,5 +1,6 @@
 package uva.tds.pr2.equipo10;
 
+
 /**
  * Implementación de una DirecciónGPS para la segunda práctica de la asignatura
  * TDS.

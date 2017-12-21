@@ -1,5 +1,6 @@
 package uva.tds.pr2.equipo10;
 
+
 /**
  * Implementación basica de una linea de buses
  *
@@ -24,23 +25,23 @@ public class Linea {
 	 *            menor a 100.
 	 * @throws IllegalArgumentException
 	 *             en caso de incumplir las condiciones impuestas a los
-	 *             par�metros.
+	 *             parámetros.
 	 */
 	public Linea(int identificador, Parada[] paradas) {
 		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * Añade Paradas intermedias a la l�nea.
+	 * Añade Paradas intermedias a la línea.
 	 *
 	 * @param parada
-	 *            Parada a a�adir. Debe ser correcta: No nula.
+	 *            Parada a anadir. Debe ser correcta: No nula.
 	 * @param posicion
-	 *            Posicion en la que a�adir la Parada.Debe ser correcta: No
+	 *            Posicion en la que añadir la Parada.Debe ser correcta: No
 	 *            puede ser el inicio ni el final de la Linea.
 	 * @throws IllegalArgumentException
 	 *             en caso de incumplir las condiciones impuestas a los
-	 *             par�metros.
+	 *             parámetros.
 	 */
 	public void addParadaIntermedia(Parada parada, int posicion) {
 		// TODO Auto-generated method stub
@@ -59,7 +60,7 @@ public class Linea {
 	}
 
 	/**
-	 * A�ade una parada como inicio del recorrido.
+	 * Anade una parada como inicio del recorrido.
 	 *
 	 * @param parada
 	 *            parada que se añade. Debe ser correcta: no nula estar a menos

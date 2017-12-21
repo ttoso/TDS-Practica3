@@ -1,5 +1,6 @@
 package uva.tds.pr2.equipo10;
 
+
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -30,7 +31,7 @@ public class ParadaTest {
 
 	@Test
 	public void getDistanciaCorrectoTest() {
-		fail("Quitar en implentaci�n");
+		fail("Quitar en implentación");
 		DireccionGPS direccion = new DireccionGPS(5.1, -5.1);
 		Parada parada = new Parada(direccion);
 		Parada parada2 = new Parada(direccion);

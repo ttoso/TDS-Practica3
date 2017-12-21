@@ -1,5 +1,6 @@
 package uva.tds.pr2.equipo10;
 
+
 /**
  * Implementación sencilla de una red de buses.
  *
@@ -16,7 +17,7 @@ public class Red {
 	 *            debe contener elementos nulos y debe contener al menos 2
 	 *            lineas.
 	 * @throws IllegalArgumentException
-	 *             si no se cumplen las conciones impuestas al par�metro.
+	 *             si no se cumplen las conciones impuestas al parámetro.
 	 */
 	public Red(Linea[] lineas) {
 		// TODO Auto-generated constructor stub
@@ -56,15 +57,15 @@ public class Red {
 	}
 
 	/**
-	 * Obtiene una Linea de la Red mediante la posici�n indicada como par�metro.
+	 * Obtiene una Linea de la Red mediante la posición indicada como parámetro.
 	 *
 	 * @param posicion
-	 *            Entero que indica la posici�n de la Linea a obtener dentro de
+	 *            Entero que indica la posición de la Linea a obtener dentro de
 	 *            la Red.Debe ser correcto: Positiva.
-	 * @return La Linea en la posici�n dada de existir Linea en la posici�n,
+	 * @return La Linea en la posición dada de existir Linea en la posición,
 	 *         null en caso contrario.
 	 * @throws IllegalArgumentException
-	 *             en caso de incumplir las condiciones impuestas al par�metro.
+	 *             en caso de incumplir las condiciones impuestas al parámetro.
 	 */
 	public Linea getLinea(int posicion) {
 		// TODO Auto-generated method stub
@@ -78,7 +79,7 @@ public class Red {
 	 *            Linea a borrar.Debe ser correcta: No nula y debe estar dentro
 	 *            de la Red.
 	 * @throws IllegalArgumentException
-	 *             en caso de incumplir las condiciones impuestas al par�metro.
+	 *             en caso de incumplir las condiciones impuestas al parámetro.
 	 */
 	public void removeLinea(Linea linea) {
 		// TODO Auto-generated method stub
@@ -98,7 +99,7 @@ public class Red {
 	 * @return Vector con las Lineas que tienen Parada cerca de la Direccion.
 	 * @throws IllegalArgumentException
 	 *             en caso de incumplir alguna de las condiciones impuestas a
-	 *             los par�metros.
+	 *             los parámetros.
 	 */
 	public Linea[] infoParadas(DireccionGPS direccion, int radio) {
 		// TODO Auto-generated method stub
@@ -115,7 +116,7 @@ public class Red {
 	 * @return La distancia en metros entre las 2 Paradas.
 	 * @throws IllegalArgumentException
 	 *             si se incumple alguna de las condiciones impuestas a los
-	 *             par�metros.
+	 *             parámetros.
 	 */
 	public int getDistanciaParadas(Parada parada1, Parada parada2) {
 		// TODO Auto-generated method stub

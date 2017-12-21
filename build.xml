@@ -6,6 +6,7 @@
 	<!-- Properties -->
 	<property name="jacocoagent" location="target/coverage/jacoco.exec" />
 	<property environment="env"/>
+	<property name="SONAR_USER_TOKEN" value="f8cf65057b6a9cb5f66cf610789198cefb5634d7"/>
 
 	<!-- Condicion para comprobar la existencia del agente -->
 	<condition property="jacoco-agent-present">
@@ -69,7 +70,7 @@
 	<target name="medidas" description="obtener informe sobre medidas" depends="obtenerInformeCobertura, medidas_unix" />
 	<target name="medidas_unix" description="medidas Unix">
 		<exec dir="." executable="sh">
-			<arg line="-c 'mvn -P Unit,Integration jxr:jxr pmd:pmd sonar:sonar -Dsonar.host.url=https://sonarqube.inf.uva.es/ -Dsonar.login=${env.SONAR_USER_TOKEN} -Dsonar.analysis.mode=publish -Dsonar.issuesReport.console.enable=true -Dsonar.jacoco.reportPath=target/coverage/jacoco.exec -Dsonar.junit.reportPaths=target/surefire-reports'" />
+			<arg line="-c 'mvn -P Unit,Integration jxr:jxr pmd:pmd sonar:sonar -Dsonar.host.url=https://sonarqube.inf.uva.es/ -Dsonar.login=${SONAR_USER_TOKEN} -Dsonar.analysis.mode=publish -Dsonar.issuesReport.console.enable=true -Dsonar.jacoco.reportPath=target/coverage/jacoco.exec -Dsonar.junit.reportPaths=target/surefire-reports'" />
 		</exec>
 	</target>
 

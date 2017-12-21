@@ -1,5 +1,6 @@
 package uva.tds.pr2.equipo10;
 
+
 import static org.junit.Assert.*;
 
 import org.junit.After;
@@ -122,7 +123,7 @@ public class RedGestionDeLineasTest {
 
 	@Test
 	public void removeLineaCorrectoTest() {
-		fail("Quitar en implementaci�n");
+		fail("Quitar en implementación");
 		red.removeLinea(linea);
 		assertNotNull(linea);
 	}
