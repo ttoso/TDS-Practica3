@@ -6,7 +6,7 @@
 	<!-- Properties -->
 	<property name="jacocoagent" location="target/coverage/jacoco.exec" />
 	<property environment="env"/>
-	<property name="SONAR_USER_TOKEN" value="f8cf65057b6a9cb5f66cf610789198cefb5634d7"/>
+	<property name="SONAR_USER_TOKEN" value="e0591cee4f7d7243465bf26e3367278459272da2"/>
 
 	<!-- Condicion para comprobar la existencia del agente -->
 	<condition property="jacoco-agent-present">
