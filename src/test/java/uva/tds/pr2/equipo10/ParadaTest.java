@@ -4,8 +4,10 @@ package uva.tds.pr2.equipo10;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 
+@Category(Integration.class)
 public class ParadaTest {
 
 	@Test
@@ -32,7 +34,6 @@ public class ParadaTest {
 
 	@Test
 	public void getDistanciaCorrectoTest() {
-		fail("Quitar en implentación");
 		DireccionGPS direccion = new DireccionGPS(5.1, -5.1);
 		Parada parada = new Parada(direccion);
 		Parada parada2 = new Parada(direccion);
@@ -49,7 +50,6 @@ public class ParadaTest {
 
 	@Test
 	public void secuenciaTest() {
-		fail("Quitar en implementacion");
 		DireccionGPS direccion = new DireccionGPS(5.1, -5.1);
 		Parada parada = new Parada(direccion);
 		Parada parada2 = new Parada(direccion);
