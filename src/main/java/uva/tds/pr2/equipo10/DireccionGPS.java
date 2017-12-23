@@ -1,5 +1,6 @@
 package uva.tds.pr2.equipo10;
 
+
 /**
  * Implementación de una DirecciónGPS para la segunda práctica de la asignatura
  * TDS.
@@ -8,9 +9,6 @@ package uva.tds.pr2.equipo10;
  * @author antroma
  */
 public class DireccionGPS {
-
-	private double latitud;
-	private double longitud;
 
 	/**
 	 * Constructor de una dirección GPS.
@@ -26,33 +24,24 @@ public class DireccionGPS {
 	 *             los argumentos del constructor.
 	 */
 	public DireccionGPS(double latitud, double longitud) {
-		if (latitud < -180)
-			throw new IllegalArgumentException("La latitud debe ser mayor o igual a -180");
-		if (latitud > 180)
-			throw new IllegalArgumentException("La latitud debe ser menor o igual a 180");
-		if (longitud < -180)
-			throw new IllegalArgumentException("La longitud debe ser mayor o igual a -180");
-		if (longitud > 180)
-			throw new IllegalArgumentException("La longitud debe ser menor o igual a 180");
-		this.latitud = latitud;
-		this.longitud = longitud;
+		int a = 0;
 	}
 
 	/**
 	 * @return latitud de la DireccionGPS.
 	 */
-	public double getLatitud() {
+	public int getLatitud() {
 		// TODO Auto-generated method stub
-		return latitud;
+		return 0;
 	}
 
 	/**
 	 *
 	 * @return longitud de la DireccionGPS .
 	 */
-	public double getLongitud() {
+	public int getLongitud() {
 		// TODO Auto-generated method stub
-		return longitud;
+		return 0;
 	}
 
 }
