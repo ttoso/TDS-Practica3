@@ -1,12 +1,11 @@
 package uva.tds.pr2.equipo10;
 
-
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
-
-
+@Category(Unit.class)
 public class DireccionGPSTest {
 
 	private final double errorAdmisible = 0.001;
