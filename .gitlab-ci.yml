@@ -7,7 +7,7 @@ variables:
 stages:
   - build
   - test
-  
+
 cache:
   paths:
     - .m2/repository
@@ -27,12 +27,8 @@ test_isolation:
  stage: test
  script:
    - mvn test -P Isolation
- except:
-   - master
 
 test_integration:
  stage: test
  script:
    - mvn test -P Integration
- only:
-   - master
