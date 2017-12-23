@@ -1,12 +1,11 @@
 package uva.tds.pr2.equipo10;
 
-
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
-
-
+@Category(Unit.class)
 public class DireccionGPSTest {
 
 	private final double errorAdmisible = 0.001;
@@ -69,7 +68,6 @@ public class DireccionGPSTest {
 
 	@Test
 	public void secuenciaTest() {
-		fail("Quitar en implementacion");
 		double latitud = 1.0;
 		double longitud = 1.0;
 		DireccionGPS direccion = new DireccionGPS(latitud, longitud);
