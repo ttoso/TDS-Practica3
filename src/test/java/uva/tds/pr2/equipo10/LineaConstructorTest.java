@@ -1,19 +1,22 @@
 package uva.tds.pr2.equipo10;
 
-
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
+
+@Category(Unit.class)
 public class LineaConstructorTest {
 
 	private final double errorAdmisible = 0.001;
 
+	
 	@Test
 	public void constructorCorrectoTest() {
 		DireccionGPS direccion1 = new DireccionGPS(20.45, 30.50);
 		DireccionGPS direccion2 = new DireccionGPS(30.5, 20.4);
-		DireccionGPS direccion3 = new DireccionGPS(20.4498, 30.50);
+		DireccionGPS direccion3 = new DireccionGPS(20.44999, 30.50);
 		Parada parada1 = new Parada(direccion1);
 		Parada parada2 = new Parada(direccion2);
 		Parada parada3 = new Parada(direccion3);
@@ -28,7 +31,7 @@ public class LineaConstructorTest {
 		assertEquals(identificador, linea.getId(), errorAdmisible);
 		assertNotNull(linea.getParadas());
 		assertArrayEquals(paradas, linea.getParadas());
-		assertFalse(linea.hasParadaNull());
+		assertFalse(linea.hasParadaNull(linea.getParadas()));
 
 	}
 
@@ -50,7 +53,7 @@ public class LineaConstructorTest {
 		Linea linea = new Linea(identificador, paradas);
 	}
 
-	@Test(expected = NullPointerException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void constructorParadasNullTest() {
 		Parada[] paradas = null;
 
@@ -60,7 +63,7 @@ public class LineaConstructorTest {
 		Linea linea = new Linea(identificador, paradas);
 	}
 
-	@Test(expected = NullPointerException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void constructorParadasConUnElementoNullTest() {
 		DireccionGPS direccion1 = new DireccionGPS(20.45, 30.50);
 		DireccionGPS direccion3 = new DireccionGPS(20.4498, 30.50);
@@ -95,7 +98,7 @@ public class LineaConstructorTest {
 	public void constructorDistanciaParadaInicioYParadaFinMayorQue100Test() {
 		DireccionGPS direccion1 = new DireccionGPS(20.45, 30.50);
 		DireccionGPS direccion2 = new DireccionGPS(30.5, 20.4);
-		DireccionGPS direccion3 = new DireccionGPS(20.4509, 30.50);
+		DireccionGPS direccion3 = new DireccionGPS(20.46, 30.51);
 		Parada parada1 = new Parada(direccion1);
 		Parada parada2 = new Parada(direccion2);
 		Parada parada3 = new Parada(direccion3);
@@ -113,7 +116,7 @@ public class LineaConstructorTest {
 	public void getIdCorrectoTest() {
 		DireccionGPS direccion1 = new DireccionGPS(20.45, 30.50);
 		DireccionGPS direccion2 = new DireccionGPS(30.5, 20.4);
-		DireccionGPS direccion3 = new DireccionGPS(20.4498, 30.50);
+		DireccionGPS direccion3 = new DireccionGPS(20.44999, 30.50);
 		Parada parada1 = new Parada(direccion1);
 		Parada parada2 = new Parada(direccion2);
 		Parada parada3 = new Parada(direccion3);
@@ -131,7 +134,7 @@ public class LineaConstructorTest {
 	public void getParadasCorrectoTest() {
 		DireccionGPS direccion1 = new DireccionGPS(20.45, 30.50);
 		DireccionGPS direccion2 = new DireccionGPS(30.5, 20.4);
-		DireccionGPS direccion3 = new DireccionGPS(20.4498, 30.50);
+		DireccionGPS direccion3 = new DireccionGPS(20.44999, 30.50);
 		Parada parada1 = new Parada(direccion1);
 		Parada parada2 = new Parada(direccion2);
 		Parada parada3 = new Parada(direccion3);
@@ -147,10 +150,9 @@ public class LineaConstructorTest {
 
 	@Test
 	public void secuenciaTest() {
-		fail("Quitar en implementacion");
 		DireccionGPS direccion1 = new DireccionGPS(20.45, 30.50);
 		DireccionGPS direccion2 = new DireccionGPS(30.5, 20.4);
-		DireccionGPS direccion3 = new DireccionGPS(20.4498, 30.50);
+		DireccionGPS direccion3 = new DireccionGPS(20.44999, 30.50);
 		Parada parada1 = new Parada(direccion1);
 		Parada parada2 = new Parada(direccion2);
 		Parada parada3 = new Parada(direccion3);
@@ -161,8 +163,8 @@ public class LineaConstructorTest {
 		int identificador = 1;
 
 		Linea linea = new Linea(identificador, paradas);
-		linea.addParadaIntermedia(parada1, 2);
-		linea.removeParada(parada1);
+		linea.addParadaIntermedia(parada1, 1);
+		linea.removeParada(parada2);
 		linea.hasParadaCerca(direccion1);
 		linea.hasCorrespondencia(linea);
 		linea.getParadasConTrasbordoDirecto(linea);

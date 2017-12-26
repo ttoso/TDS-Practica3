@@ -33,7 +33,7 @@ public class RedGestionDeDistanciasTest {
 	public void setUp() throws Exception {
 		direccion1 = new DireccionGPS(20.45, 30.50);
 		direccion2 = new DireccionGPS(30.5, 20.4);
-		direccion3 = new DireccionGPS(20.4498, 30.50);
+		direccion3 = new DireccionGPS(20.44999, 30.50);
 		parada1 = new Parada(direccion1);
 		parada2 = new Parada(direccion2);
 		parada3 = new Parada(direccion3);
