@@ -149,27 +149,31 @@ public class Red {
 			throw new IllegalArgumentException("La direcion debe ser no nula.");
 		if (radio < 1)
 			throw new IllegalArgumentException("El readio debe ser positivo");
-		
+
 		Parada referencia = new Parada(direccion);
 		ArrayList<Linea> resultado = new ArrayList<>();
-		
+
 		for (int i = 0; i < lineas.size(); i++) {
-			Parada paradas[] =lineas.get(i).getParadas();
-			for (int j = 0; j < paradas.length; j++) {
-				if (paradas[i].getDistancia(referencia) < radio) {
+			Parada paradas[] = lineas.get(i).getParadas();
+			int j = 0;
+			boolean salir = false;
+			while (j < paradas.length && !salir) {
+				if (paradas[j].getDistancia(referencia) <= radio) {
 					resultado.add(lineas.get(i));
-					break;
+					salir = true;
 				}
+				j++;
 			}
+
 		}
-		
+
 		Linea respuesta[] = new Linea[resultado.size()];
 		for (int i = 0; i < resultado.size(); i++) {
 			respuesta[i] = resultado.get(i);
 		}
-		
+
 		return respuesta;
-		
+
 	}
 
 	/**
