@@ -67,13 +67,5 @@ public class DireccionGPSTest {
 		assertEquals(longitud, direccion.getLongitud(), errorAdmisible);
 	}
 
-	@Test
-	public void secuenciaTest() {
-		double latitud = 1.0;
-		double longitud = 1.0;
-		DireccionGPS direccion = new DireccionGPS(latitud, longitud);
-		direccion.getLatitud();
-		direccion.getLongitud();
-	}
-
+	
 }

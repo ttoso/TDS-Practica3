@@ -1,17 +1,15 @@
 package uva.tds.pr2.equipo10;
 
-
 import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 import org.junit.experimental.categories.Category;
 
 
-@Category(Unit.class)
-public class RedConstructorTest {
+@Category(Sequence.class)
+public class SecuenciaRedTest {
 
 	private DireccionGPS direccion1;
 	private DireccionGPS direccion2;
@@ -74,43 +72,15 @@ public class RedConstructorTest {
 		identificador2 = 0;
 		linea2 = null;
 	}
-
-	@Test
-	public void constructorCorrectoTest() {
-		Linea lineas[] = new Linea[] { linea, linea2 };
-		Red red = new Red(lineas);
-		assertNotNull(lineas);
-		assertArrayEquals(lineas, red.getLineas());
-		assertFalse(red.hasLineaNull(red.getLineas()));
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void constructorConLineasNullTest() {
-		@SuppressWarnings("unused")
-		Red red = new Red(null);
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void constructorConLineaNullTest() {
-		Linea lineas[] = new Linea[] { linea, null };
-		@SuppressWarnings("unused")
-		Red red = new Red(lineas);
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void constructorConLineasDeTamanioMenorDe2Test() {
-		Linea lineas[] = new Linea[] { linea };
-		@SuppressWarnings("unused")
-		Red red = new Red(lineas);
-	}
-
-	@Test
-	public void getLineasCorrectoTest() {
-		Linea lineas[] = new Linea[] { linea, linea2 };
-		Red red = new Red(lineas);
-		assertArrayEquals(lineas, red.getLineas());
-	}
-
 	
-
+	@Test
+	public void secuenciaTest() {
+		Linea lineas[] = new Linea[] { linea, linea2 };
+		Red red = new Red(lineas);
+		red.addLinea(new Linea(3, paradas));
+		red.removeLinea(linea);
+		red.getDistanciaParadas(parada1, parada2);
+		red.getLinea(0);
+		red.infoParadas(direccion1, 100);
+	}
 }
