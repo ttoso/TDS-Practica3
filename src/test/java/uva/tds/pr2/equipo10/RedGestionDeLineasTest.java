@@ -123,7 +123,6 @@ public class RedGestionDeLineasTest {
 
 	@Test
 	public void removeLineaCorrectoTest() {
-		fail("Quitar en implementación");
 		red.removeLinea(linea);
 		assertNotNull(linea);
 	}

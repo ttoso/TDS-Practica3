@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Red {
 
 	private ArrayList<Linea> lineas = new ArrayList<>();
-	
+
 	/**
 	 * Inicia una red de autobuses con un vector de Lineas que la componen.
 	 *
@@ -48,8 +48,10 @@ public class Red {
 
 	/**
 	 * Comprueba si la Red tiene alguna Linea nula.
-	 * @param lineas 
-	 * 				Array de lineas que representa una red. Debe ser correcto: no nulo.
+	 * 
+	 * @param lineas
+	 *            Array de lineas que representa una red. Debe ser correcto: no
+	 *            nulo.
 	 *
 	 * @return true si tiene al menos una Linea nula, false en caso contrario.
 	 */
@@ -73,8 +75,13 @@ public class Red {
 	 *             en caso de incumplir las condiciones impuestas al par�metro.
 	 */
 	public void addLinea(Linea linea) {
-		// TODO Auto-generated method stub
-
+		if (linea == null)
+			throw new IllegalArgumentException("La Linea no puede ser null.");
+		lineas.forEach(s -> {
+			if (s.equals(linea))
+				throw new IllegalArgumentException("La linea introducida ya está en la red.");
+		});
+		lineas.add(linea);
 	}
 
 	/**
@@ -89,8 +96,14 @@ public class Red {
 	 *             en caso de incumplir las condiciones impuestas al parámetro.
 	 */
 	public Linea getLinea(int posicion) {
-		// TODO Auto-generated method stub
-		return null;
+		if (posicion < 0)
+			throw new IllegalArgumentException("La posición de la linea debe ser positiva.");
+		if (posicion >= lineas.size()) {
+			return null;
+		} else {
+			return lineas.get(posicion);
+		}
+
 	}
 
 	/**
@@ -103,8 +116,17 @@ public class Red {
 	 *             en caso de incumplir las condiciones impuestas al parámetro.
 	 */
 	public void removeLinea(Linea linea) {
-		// TODO Auto-generated method stub
+		if (linea == null)
+			throw new IllegalArgumentException("La Linea no puede ser null.");
+		boolean find = false;
+		for (int i = 0; i < lineas.size(); i++) {
+			if (lineas.get(i).equals(linea))
+				find = true;
+		}
+		if (!find)
+			throw new IllegalArgumentException("La linea que se quiere borrar debe estar dentro de la red.");
 
+		lineas.remove(linea);
 	}
 
 	/**
