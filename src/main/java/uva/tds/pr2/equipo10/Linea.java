@@ -32,7 +32,6 @@ public class Linea {
 	 *             parámetros.
 	 */
 	public Linea(int identificador, Parada[] paradas) {
-		// TODO Auto-generated constructor stub
 		if (identificador < 1)
 			throw new IllegalArgumentException("El identificador debe ser positivo.");
 		if (paradas == null)
@@ -114,7 +113,6 @@ public class Linea {
 	 *             si se incumplen las condiciones impuestas
 	 */
 	public void removeParada(Parada parada) {
-		// TODO Auto-generated method stub
 		if (parada == null)
 			throw new IllegalArgumentException("La parada a eliminar no puede ser null.");
 		if (parada.equals(paradas.get(0)))
@@ -218,7 +216,6 @@ public class Linea {
 	 *             si se incumplen las condiciones impuestas al parámetro.
 	 */
 	public boolean hasTrasbordoDirecto(Linea linea) {
-		// TODO Auto-generated method stub
 		if (linea == null)
 			throw new IllegalArgumentException("La linea no puede ser null.");
 		Parada paradasLinea[] = linea.getParadas();
@@ -245,7 +242,6 @@ public class Linea {
 	 *             si se incumplen las condiciones impuestas al parámetro.
 	 */
 	public Parada[] getParadasConTrasbordoDirecto(Linea linea) {
-		// TODO Auto-generated method stub
 		if (linea == null)
 			throw new IllegalArgumentException("La linea no puede ser null.");
 		if (!linea.hasTrasbordoDirecto(this))
@@ -282,7 +278,6 @@ public class Linea {
 	 *             si se incumplen las condiciones impuestas a los parámetros.
 	 */
 	public double checkDistancia(Parada parada1, Parada parada2) {
-		// TODO Auto-generated method stub
 		if (parada1 == null)
 			throw new IllegalArgumentException("La primera parada no puede ser null.");
 		if (parada2 == null)
@@ -295,7 +290,6 @@ public class Linea {
 	 * @return Identificador de this.
 	 */
 	public int getId() {
-		// TODO Auto-generated method stub
 		return identificador;
 	}
 
@@ -304,7 +298,6 @@ public class Linea {
 	 * @return Vector de Paradas de this.
 	 */
 	public Parada[] getParadas() {
-		// TODO Auto-generated method stub
 		Parada[] paradas = new Parada[this.paradas.size()];
 		for (int i = 0; i < paradas.length; i++) {
 			paradas[i] = this.paradas.get(i);
@@ -322,7 +315,6 @@ public class Linea {
 	 * @return true si tiene alguna Parada null, false en caso contrario.
 	 */
 	public boolean hasParadaNull(Parada[] paradas) {
-		// TODO Auto-generated method stub
 		for (int i = 0; i < paradas.length; i++) {
 			if (paradas[i] == null)
 				return true;
@@ -339,7 +331,6 @@ public class Linea {
 	 * @return true si la Linea tiene la Parada, false en caso contrario.
 	 */
 	public boolean hasParada(Parada parada) {
-		// TODO Auto-generated method stub
 		if (parada == null)
 			throw new IllegalArgumentException("La parada no puede ser null.");
 		for (int i = 0; i < paradas.size(); i++) {
@@ -351,7 +342,6 @@ public class Linea {
 	}
 
 	private void volcarParadas(Parada[] paradas) {
-		// TODO Auto-generated method stub
 		for (int i = 0; i < paradas.length; i++) {
 			this.paradas.add(paradas[i]);
 		}

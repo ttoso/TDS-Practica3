@@ -194,7 +194,7 @@ public class LineaCorrespondenciasYTrasbordosTest {
 	public void checkDistanciaCorrectoTest() {
 		double distancia = linea.checkDistancia(parada1, parada1);
 		assertNotNull(parada1);
-		assertEquals(0, distancia, errorAdmisible);
+		assertTrue(0 == distancia);
 	}
 
 	@Test(expected = IllegalArgumentException.class)

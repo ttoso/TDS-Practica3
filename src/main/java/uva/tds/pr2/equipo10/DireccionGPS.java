@@ -42,7 +42,6 @@ public class DireccionGPS {
 	 * @return latitud de la DireccionGPS.
 	 */
 	public double getLatitud() {
-		// TODO Auto-generated method stub
 		return latitud;
 	}
 
@@ -51,7 +50,6 @@ public class DireccionGPS {
 	 * @return longitud de la DireccionGPS .
 	 */
 	public double getLongitud() {
-		// TODO Auto-generated method stub
 		return longitud;
 	}
 

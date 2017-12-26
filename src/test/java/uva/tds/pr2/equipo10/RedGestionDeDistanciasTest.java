@@ -112,7 +112,7 @@ public class RedGestionDeDistanciasTest {
 		double distancia = red.getDistanciaParadas(parada1, parada5);
 		assertNotNull(parada1);
 		assertNotNull(parada5);
-		assertEquals(0, red.getDistanciaParadas(parada1, parada1), 0.001);
+		assertTrue(0 == red.getDistanciaParadas(parada1, parada1));
 	}
 
 	@Test(expected = IllegalArgumentException.class)
