@@ -221,7 +221,7 @@ public class Linea {
 		Parada paradasLinea[] = linea.getParadas();
 		for (int i = 0; i < paradasLinea.length; i++) {
 			for (int j = 0; j < paradas.size(); j++) {
-				if (paradas.get(j).getDistancia(paradasLinea[i]) == 0) {
+				if (paradas.get(j).getDistancia(paradasLinea[i]) < 0.0001) {
 					return true;
 				}
 			}
@@ -250,7 +250,7 @@ public class Linea {
 		ArrayList<Parada> trasbordos = new ArrayList<>();
 		for (int i = 0; i < linea.getParadas().length; i++) {
 			for (int j = 0; j < paradas.size(); j++) {
-				if (paradas.get(j).getDistancia(linea.getParadas()[i]) == 0) {
+				if (paradas.get(j).getDistancia(linea.getParadas()[i]) < 0.0001) {
 					trasbordos.add(linea.getParadas()[i]);
 				}
 			}
