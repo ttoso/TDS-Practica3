@@ -18,10 +18,10 @@ public class LineaGestionDeParadasTest {
 	private Linea linea;
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp(){
 		direccion1 = new DireccionGPS(20.45, 30.50);
 		direccion2 = new DireccionGPS(30.5, 20.4);
-		direccion3 = new DireccionGPS(20.4498, 30.50);
+		direccion3 = new DireccionGPS(20.44999, 30.50);
 		parada1 = new Parada(direccion1);
 		parada2 = new Parada(direccion2);
 		parada3 = new Parada(direccion3);
@@ -34,7 +34,7 @@ public class LineaGestionDeParadasTest {
 	}
 
 	@After
-	public void tearDown() throws Exception {
+	public void tearDown(){
 		direccion1 = null;
 		direccion2 = null;
 		direccion3 = null;
@@ -48,16 +48,14 @@ public class LineaGestionDeParadasTest {
 
 	@Test
 	public void addParadaIntermediaCorrectoTest() {
-		fail("Cambiar");
 		DireccionGPS direccionGPS = new DireccionGPS(20.1, 31);
 		Parada parada = new Parada(direccionGPS);
 		int posicion = 1;
 		linea.addParadaIntermedia(parada, posicion);
-		assertFalse(linea.hasParadaNull());
 		assertEquals(linea.getParadas()[posicion], parada);
 	}
 
-	@Test(expected = NullPointerException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void addParadaIntermediaConParadaNullTest() {
 		int posicion = 1;
 		linea.addParadaIntermedia(null, posicion);
@@ -81,12 +79,10 @@ public class LineaGestionDeParadasTest {
 
 	@Test
 	public void addParadaFinalCorrectoTest() {
-		fail("Quitar en implementación");
-		DireccionGPS direccionGPS = new DireccionGPS(20.44989, 30.5);
+		DireccionGPS direccionGPS = new DireccionGPS(20.44999, 30.5);
 		Parada parada = new Parada(direccionGPS);
 		linea.addParadaFinal(parada);
 
-		assertFalse(linea.hasParadaNull());
 		assertEquals(linea.getParadas()[linea.getParadas().length - 1], parada);
 	}
 
@@ -105,11 +101,10 @@ public class LineaGestionDeParadasTest {
 
 	@Test
 	public void addParadaInicialCorrectoTest() {
-		fail("Cambiar");
-		DireccionGPS direccionGPS = new DireccionGPS(20.44989, 30.5);
+		DireccionGPS direccionGPS = new DireccionGPS(20.44999, 30.5);
 		Parada parada = new Parada(direccionGPS);
 		linea.addParadaInicial(parada);
-		assertFalse(linea.hasParadaNull());
+		
 		assertEquals(linea.getParadas()[0], parada);
 	}
 
@@ -120,7 +115,7 @@ public class LineaGestionDeParadasTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void addParadaInicialConParadaAMasDistanciaDeCienTest() {
-		DireccionGPS direccionGPS = new DireccionGPS(20.44989, 30.5);
+		DireccionGPS direccionGPS = new DireccionGPS(20.44, 30.5);
 		Parada parada = new Parada(direccionGPS);
 		linea.addParadaInicial(parada);
 	}
@@ -130,7 +125,6 @@ public class LineaGestionDeParadasTest {
 		fail("Quitar en implementación");
 		linea.removeParada(parada2);
 
-		assertFalse(linea.hasParadaNull());
 		assertFalse(linea.hasParada(parada2));
 
 	}

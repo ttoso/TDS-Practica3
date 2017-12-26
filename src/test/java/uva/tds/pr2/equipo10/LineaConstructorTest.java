@@ -3,16 +3,20 @@ package uva.tds.pr2.equipo10;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
+
+@Category(Integration.class)
 public class LineaConstructorTest {
 
 	private final double errorAdmisible = 0.001;
 
+	
 	@Test
 	public void constructorCorrectoTest() {
 		DireccionGPS direccion1 = new DireccionGPS(20.45, 30.50);
 		DireccionGPS direccion2 = new DireccionGPS(30.5, 20.4);
-		DireccionGPS direccion3 = new DireccionGPS(20.4498, 30.50);
+		DireccionGPS direccion3 = new DireccionGPS(20.44999, 30.50);
 		Parada parada1 = new Parada(direccion1);
 		Parada parada2 = new Parada(direccion2);
 		Parada parada3 = new Parada(direccion3);
@@ -112,7 +116,7 @@ public class LineaConstructorTest {
 	public void getIdCorrectoTest() {
 		DireccionGPS direccion1 = new DireccionGPS(20.45, 30.50);
 		DireccionGPS direccion2 = new DireccionGPS(30.5, 20.4);
-		DireccionGPS direccion3 = new DireccionGPS(20.4498, 30.50);
+		DireccionGPS direccion3 = new DireccionGPS(20.44999, 30.50);
 		Parada parada1 = new Parada(direccion1);
 		Parada parada2 = new Parada(direccion2);
 		Parada parada3 = new Parada(direccion3);
@@ -130,7 +134,7 @@ public class LineaConstructorTest {
 	public void getParadasCorrectoTest() {
 		DireccionGPS direccion1 = new DireccionGPS(20.45, 30.50);
 		DireccionGPS direccion2 = new DireccionGPS(30.5, 20.4);
-		DireccionGPS direccion3 = new DireccionGPS(20.4498, 30.50);
+		DireccionGPS direccion3 = new DireccionGPS(20.44999, 30.50);
 		Parada parada1 = new Parada(direccion1);
 		Parada parada2 = new Parada(direccion2);
 		Parada parada3 = new Parada(direccion3);
@@ -148,7 +152,7 @@ public class LineaConstructorTest {
 	public void secuenciaTest() {
 		DireccionGPS direccion1 = new DireccionGPS(20.45, 30.50);
 		DireccionGPS direccion2 = new DireccionGPS(30.5, 20.4);
-		DireccionGPS direccion3 = new DireccionGPS(20.4498, 30.50);
+		DireccionGPS direccion3 = new DireccionGPS(20.44999, 30.50);
 		Parada parada1 = new Parada(direccion1);
 		Parada parada2 = new Parada(direccion2);
 		Parada parada3 = new Parada(direccion3);
@@ -159,7 +163,7 @@ public class LineaConstructorTest {
 		int identificador = 1;
 
 		Linea linea = new Linea(identificador, paradas);
-		linea.addParadaIntermedia(parada1, 2);
+		linea.addParadaIntermedia(parada1, 1);
 		linea.removeParada(parada1);
 		linea.hasParadaCerca(direccion1);
 		linea.hasCorrespondencia(linea);

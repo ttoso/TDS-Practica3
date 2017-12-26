@@ -61,7 +61,13 @@ public class Linea {
 	 *             parámetros.
 	 */
 	public void addParadaIntermedia(Parada parada, int posicion) {
-		// TODO Auto-generated method stub
+		if (parada == null)
+			throw new IllegalArgumentException("La parada no puede ser null.");
+		if (posicion == 0)
+			throw new IllegalArgumentException("La posicion no puede ser la de la parada inicial");
+		if (posicion == paradas.size() - 1)
+			throw new IllegalArgumentException("La posicion no puede ser la de la parada final");
+		paradas.add(posicion, parada);
 
 	}
 
@@ -73,7 +79,13 @@ public class Linea {
 	 *            de 100 metros de la parada inicial.
 	 */
 	public void addParadaFinal(Parada parada) {
-		// TODO Auto-generated method stub
+		if (parada == null)
+			throw new IllegalArgumentException("La parada no puede ser null.");
+		if (parada.getDistancia(paradas.get(0)) > 100)
+			throw new IllegalArgumentException(
+					"La distancia entre la parada y la parada inicial debe ser menor a 100.");
+		paradas.add(parada);
+
 	}
 
 	/**
@@ -84,9 +96,12 @@ public class Linea {
 	 *            de 100 metros de la parada final.
 	 */
 	public void addParadaInicial(Parada parada) {
-
-		// TODO Auto-generated method stub
-
+		if (parada == null)
+			throw new IllegalArgumentException("La parada no puede ser null.");
+		if (parada.getDistancia(paradas.get(paradas.size()-1)) > 100)
+			throw new IllegalArgumentException(
+					"La distancia entre la parada y la parada final debe ser menor a 100.");
+		paradas.add(0, parada);
 	}
 
 	/**
