@@ -6,7 +6,7 @@ import org.junit.experimental.categories.Category;
 
 
 @Category(Sequence.class)
-public class LineatestSecuencia {
+public class SecuenciaLineaTest {
 
 	@Test
 	public void secuenciaTest() {

@@ -9,7 +9,7 @@ import org.junit.experimental.categories.Category;
 
 
 @Category(Sequence.class)
-public class RedTestSecuencia {
+public class SecuenciaRedTest {
 
 	private DireccionGPS direccion1;
 	private DireccionGPS direccion2;
