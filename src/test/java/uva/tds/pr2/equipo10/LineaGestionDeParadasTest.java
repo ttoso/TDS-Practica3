@@ -122,7 +122,6 @@ public class LineaGestionDeParadasTest {
 
 	@Test
 	public void removeParadaCorrectoTest() {
-		fail("Quitar en implementación");
 		linea.removeParada(parada2);
 
 		assertFalse(linea.hasParada(parada2));
@@ -149,14 +148,13 @@ public class LineaGestionDeParadasTest {
 
 	@Test
 	public void hasParadaCercaCorrectoTest() {
-		fail("Quitar en implementación");
 		assertTrue(linea.hasParadaCerca(direccion2));
 		assertNotNull(direccion2);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void hasParadaCercaConDireccionNullTest() {
-		linea.hasParadaCerca(direccion2);
+		linea.hasParadaCerca(null);
 	}
 
 	@Test

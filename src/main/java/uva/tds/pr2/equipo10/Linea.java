@@ -98,9 +98,8 @@ public class Linea {
 	public void addParadaInicial(Parada parada) {
 		if (parada == null)
 			throw new IllegalArgumentException("La parada no puede ser null.");
-		if (parada.getDistancia(paradas.get(paradas.size()-1)) > 100)
-			throw new IllegalArgumentException(
-					"La distancia entre la parada y la parada final debe ser menor a 100.");
+		if (parada.getDistancia(paradas.get(paradas.size() - 1)) > 100)
+			throw new IllegalArgumentException("La distancia entre la parada y la parada final debe ser menor a 100.");
 		paradas.add(0, parada);
 	}
 
@@ -116,21 +115,34 @@ public class Linea {
 	 */
 	public void removeParada(Parada parada) {
 		// TODO Auto-generated method stub
-
+		if (parada == null)
+			throw new IllegalArgumentException("La parada a eliminar no puede ser null.");
+		if (parada.equals(paradas.get(0)))
+			throw new IllegalArgumentException("La parada a eleminar no puede ser la inicial.");
+		if (parada.equals(paradas.get(paradas.size() - 1)))
+			throw new IllegalArgumentException("La parada a eleminar no puede ser la final.");
+		paradas.remove(parada);
 	}
 
 	/**
 	 * Comprueba si la Linea tiene una Parada cerca de la direccion pasada.
 	 *
-	 * @param direccion2
+	 * @param direccion
 	 *            DireccionGPS a comprobar.Debe ser correcto: No ser null.
 	 * @return true si tiene una Parada a menos de 200m de la Direccion pasada,
 	 *         false en caso contrario.
 	 * @throws IllegalArgumentException
 	 *             si se incumplen las condiciones impuestas al parámetro.
 	 */
-	public boolean hasParadaCerca(DireccionGPS direccion2) {
-		// TODO Auto-generated method stub
+	public boolean hasParadaCerca(DireccionGPS direccion) {
+		if (direccion == null)
+			throw new IllegalArgumentException("La dirección no puede ser null.");
+		Parada direccionAComprobar = new Parada(direccion);
+		for (int i = 0; i < paradas.size(); i++) {
+			if (paradas.get(i).getDistancia(direccionAComprobar) < 200)
+				return true;
+		}
+
 		return false;
 	}
 
@@ -148,8 +160,14 @@ public class Linea {
 	 *             si se incumplen las condiciones impuestas al parámetro.
 	 */
 	public boolean hasCorrespondencia(Linea linea) {
-		// TODO Auto-generated method stub
-		return false;
+		if (linea == null)
+			throw new IllegalArgumentException("La linea no puede ser null.");
+		Parada paradasLinea[] = linea.getParadas();
+		boolean cerca = false;
+		for (int i = 0; i < paradasLinea.length; i++) {
+			cerca = hasParadaCerca(paradasLinea[i].getDireccion());
+		}
+		return cerca;
 	}
 
 	/**
@@ -269,6 +287,13 @@ public class Linea {
 	 */
 	public boolean hasParada(Parada parada) {
 		// TODO Auto-generated method stub
+		if (parada == null)
+			throw new IllegalArgumentException("La parada no puede ser null.");
+		for (int i = 0; i < paradas.size(); i++) {
+			if (parada.equals(paradas.get(i))) {
+				return true;
+			}
+		}
 		return false;
 	}
 
