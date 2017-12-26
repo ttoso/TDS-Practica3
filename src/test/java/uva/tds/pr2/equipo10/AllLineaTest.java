@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ LineaConstructorTest.class, LineaGestionDeParadasTest.class,
+@SuiteClasses({ LineaConstructorTest.class, LineaGestionDeParadasTestUnit.class,
 		LineaCorrespondenciasYTrasbordosTest.class })
 public class AllLineaTest {
 
