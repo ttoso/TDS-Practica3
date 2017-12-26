@@ -1,5 +1,6 @@
 package uva.tds.pr2.equipo10;
 
+import java.util.ArrayList;
 
 /**
  * Implementación basica de una linea de buses
@@ -9,6 +10,9 @@ package uva.tds.pr2.equipo10;
  *
  */
 public class Linea {
+
+	private int identificador;
+	private ArrayList<Parada> paradas = new ArrayList<Parada>();
 
 	/**
 	 * Constructor de la clase linea
@@ -20,7 +24,7 @@ public class Linea {
 	 *            Array que contiene las paradas de la linea y cuya primera y
 	 *            ultima posicion seran la primera y ultima parada de la linea
 	 *            respectivamente. Debe ser correcto: No debe ser nulo No debe
-	 *            contener elementos nulos Debe tener 3 elmentos o mas La
+	 *            contener elementos nulos Debe tener 3 elementos o mas La
 	 *            distancia entre el primer y ultimo elemento del array debe ser
 	 *            menor a 100.
 	 * @throws IllegalArgumentException
@@ -29,6 +33,19 @@ public class Linea {
 	 */
 	public Linea(int identificador, Parada[] paradas) {
 		// TODO Auto-generated constructor stub
+		if (identificador < 1)
+			throw new IllegalArgumentException("El identificador debe ser positivo.");
+		if (paradas == null)
+			throw new IllegalArgumentException("El vector de paradas no puede ser null.");
+		if (hasParadaNull(paradas))
+			throw new IllegalArgumentException("El vector de paradas no puede tener Paradas nulas.");
+		if (paradas.length < 3)
+			throw new IllegalArgumentException("El vector de paradas debe tener al menos 3 elementos.");
+		if (paradas[0].getDistancia(paradas[paradas.length - 1]) > 100)
+			throw new IllegalArgumentException(
+					"La distancia entre el primer y el ultimo elemento del vector debe ser menor a 100.");
+		this.identificador = identificador;
+		volcarParadas(paradas);
 	}
 
 	/**
@@ -193,7 +210,7 @@ public class Linea {
 	 */
 	public int getId() {
 		// TODO Auto-generated method stub
-		return 0;
+		return identificador;
 	}
 
 	/**
@@ -202,17 +219,28 @@ public class Linea {
 	 */
 	public Parada[] getParadas() {
 		// TODO Auto-generated method stub
-		return null;
+		Parada[] paradas = new Parada[this.paradas.size()];
+		for (int i = 0; i < paradas.length; i++) {
+			paradas[i] = this.paradas.get(i);
+		}
+		return paradas;
 	}
 
 	/**
 	 * Comprobará si la Linea tiene alguna Parada null, para informar al
 	 * usuario.
 	 *
+	 * @param paradas
+	 *            Vector de Paradas en el que se comprobará si hay elementos
+	 *            nulos.
 	 * @return true si tiene alguna Parada null, false en caso contrario.
 	 */
-	public boolean hasParadaNull() {
+	public boolean hasParadaNull(Parada[] paradas) {
 		// TODO Auto-generated method stub
+		for (int i = 0; i < paradas.length; i++) {
+			if (paradas[i] == null)
+				return true;
+		}
 		return false;
 	}
 
@@ -227,6 +255,13 @@ public class Linea {
 	public boolean hasParada(Parada parada) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	private void volcarParadas(Parada[] paradas) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < paradas.length; i++) {
+			this.paradas.add(paradas[i]);
+		}
 	}
 
 }

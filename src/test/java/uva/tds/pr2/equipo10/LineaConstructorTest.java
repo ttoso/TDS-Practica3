@@ -1,6 +1,5 @@
 package uva.tds.pr2.equipo10;
 
-
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -28,7 +27,7 @@ public class LineaConstructorTest {
 		assertEquals(identificador, linea.getId(), errorAdmisible);
 		assertNotNull(linea.getParadas());
 		assertArrayEquals(paradas, linea.getParadas());
-		assertFalse(linea.hasParadaNull());
+		assertFalse(linea.hasParadaNull(linea.getParadas()));
 
 	}
 
@@ -50,7 +49,7 @@ public class LineaConstructorTest {
 		Linea linea = new Linea(identificador, paradas);
 	}
 
-	@Test(expected = NullPointerException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void constructorParadasNullTest() {
 		Parada[] paradas = null;
 
@@ -60,7 +59,7 @@ public class LineaConstructorTest {
 		Linea linea = new Linea(identificador, paradas);
 	}
 
-	@Test(expected = NullPointerException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void constructorParadasConUnElementoNullTest() {
 		DireccionGPS direccion1 = new DireccionGPS(20.45, 30.50);
 		DireccionGPS direccion3 = new DireccionGPS(20.4498, 30.50);
@@ -95,7 +94,7 @@ public class LineaConstructorTest {
 	public void constructorDistanciaParadaInicioYParadaFinMayorQue100Test() {
 		DireccionGPS direccion1 = new DireccionGPS(20.45, 30.50);
 		DireccionGPS direccion2 = new DireccionGPS(30.5, 20.4);
-		DireccionGPS direccion3 = new DireccionGPS(20.4509, 30.50);
+		DireccionGPS direccion3 = new DireccionGPS(20.46, 30.51);
 		Parada parada1 = new Parada(direccion1);
 		Parada parada2 = new Parada(direccion2);
 		Parada parada3 = new Parada(direccion3);
@@ -147,7 +146,6 @@ public class LineaConstructorTest {
 
 	@Test
 	public void secuenciaTest() {
-		fail("Quitar en implementacion");
 		DireccionGPS direccion1 = new DireccionGPS(20.45, 30.50);
 		DireccionGPS direccion2 = new DireccionGPS(30.5, 20.4);
 		DireccionGPS direccion3 = new DireccionGPS(20.4498, 30.50);

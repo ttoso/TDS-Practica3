@@ -39,18 +39,19 @@ public class Parada {
 	public int getDistancia(Parada parada) {
 		if (parada == null)
 			throw new IllegalArgumentException("La parada no puede ser nula");
-		
+
 		int radioTierra = 6371000;
 		double diferenciaDeLatitudes = getDireccion().getLatitud() - parada.getDireccion().getLatitud();
 		double diferenciaDeLongitudes = getDireccion().getLongitud() - parada.getDireccion().getLongitud();
-        double sindLat = Math.sin(diferenciaDeLatitudes / 2);  
-        double sindLng = Math.sin(diferenciaDeLongitudes / 2);  
-        double va1 = Math.pow(sindLat, 2) + Math.pow(sindLng, 2) 
-        	* Math.cos(Math.toRadians(getDireccion().getLatitud())) * Math.cos(Math.toRadians(parada.getDireccion().getLatitud()));  
-        double va2 = 2 * Math.atan2(Math.sqrt(va1), Math.sqrt(1 - va1));  
-        int distancia = radioTierra * (int)va2;  
-   
-        return distancia;  
+		double sindLat = Math.sin(diferenciaDeLatitudes / 2);
+		double sindLng = Math.sin(diferenciaDeLongitudes / 2);
+		double va1 = Math.pow(sindLat, 2) + Math.pow(sindLng, 2) * Math.cos(Math.toRadians(getDireccion().getLatitud()))
+				* Math.cos(Math.toRadians(parada.getDireccion().getLatitud()));
+		double va2 = 2 * Math.atan2(Math.sqrt(va1), Math.sqrt(1 - va1));
+
+		double distancia = radioTierra * va2;
+
+		return (int) distancia;
 	}
 
 	/**
