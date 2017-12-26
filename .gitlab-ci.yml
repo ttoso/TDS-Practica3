@@ -8,6 +8,7 @@ stages:
   - build
   - test
   - qa
+  - deploy
 
 cache:
   paths:
@@ -62,3 +63,17 @@ sonar_preview_job:
   except:
     - develop
     - master
+
+pages:
+  stage: deploy
+  script:
+    - mvn install site
+    - mkdir .public
+    - cp -R target/site/* .public
+    - rm -rf .public/xref
+    - rm -rf .public/xref-test
+    - mv .public public
+  artifacts:
+    paths:
+      - public
+    expire_in: 30 days
