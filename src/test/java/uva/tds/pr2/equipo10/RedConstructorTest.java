@@ -7,6 +7,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import org.junit.experimental.categories.Category;
+
+
+@Category(Unit.class)
 public class RedConstructorTest {
 
 	private DireccionGPS direccion1;
@@ -77,7 +81,7 @@ public class RedConstructorTest {
 		Red red = new Red(lineas);
 		assertNotNull(lineas);
 		assertArrayEquals(lineas, red.getLineas());
-		assertFalse(red.hasLineaNull());
+		assertFalse(red.hasLineaNull(red.getLineas()));
 	}
 
 	@Test(expected = IllegalArgumentException.class)

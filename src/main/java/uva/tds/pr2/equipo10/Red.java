@@ -1,5 +1,6 @@
 package uva.tds.pr2.equipo10;
 
+import java.util.ArrayList;
 
 /**
  * Implementación sencilla de una red de buses.
@@ -9,6 +10,8 @@ package uva.tds.pr2.equipo10;
  */
 public class Red {
 
+	private ArrayList<Linea> lineas = new ArrayList<>();
+	
 	/**
 	 * Inicia una red de autobuses con un vector de Lineas que la componen.
 	 *
@@ -20,7 +23,15 @@ public class Red {
 	 *             si no se cumplen las conciones impuestas al parámetro.
 	 */
 	public Red(Linea[] lineas) {
-		// TODO Auto-generated constructor stub
+		if (lineas == null)
+			throw new IllegalArgumentException("El array de lineas no puede ser nulo.");
+		if (lineas.length < 2)
+			throw new IllegalArgumentException("El array de lineas debe contener al menos dos elementos.");
+		if (hasLineaNull(lineas))
+			throw new IllegalArgumentException("El array de lineas no debe contener elementos nulos");
+		for (int i = 0; i < lineas.length; i++) {
+			this.lineas.add(lineas[i]);
+		}
 	}
 
 	/**
@@ -28,17 +39,27 @@ public class Red {
 	 * @return vector de Lineas de la Red.
 	 */
 	public Linea[] getLineas() {
-		// TODO Auto-generated method stub
-		return null;
+		Linea salida[] = new Linea[lineas.size()];
+		for (int i = 0; i < lineas.size(); i++) {
+			salida[i] = lineas.get(i);
+		}
+		return salida;
 	}
 
 	/**
 	 * Comprueba si la Red tiene alguna Linea nula.
+	 * @param lineas 
+	 * 				Array de lineas que representa una red. Debe ser correcto: no nulo.
 	 *
 	 * @return true si tiene al menos una Linea nula, false en caso contrario.
 	 */
-	public boolean hasLineaNull() {
-		// TODO Auto-generated method stub
+	public boolean hasLineaNull(Linea[] lineas) {
+		if (lineas == null)
+			throw new IllegalArgumentException("El array de lineas no puede ser nulo.");
+		for (int i = 0; i < lineas.length; i++) {
+			if (lineas[i] == null)
+				return true;
+		}
 		return false;
 	}
 
