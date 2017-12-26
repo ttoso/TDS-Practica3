@@ -32,3 +32,8 @@ test_integration:
  stage: test
  script:
    - mvn test -P Integration
+
+test_sequence:
+ stage: test
+ script:
+   - mvn test -P Sequence

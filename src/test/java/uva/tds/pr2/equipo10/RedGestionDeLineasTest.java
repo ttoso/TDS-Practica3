@@ -7,6 +7,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import org.junit.experimental.categories.Category;
+
+
+@Category(Unit.class)
 public class RedGestionDeLineasTest {
 
 	private DireccionGPS direccion1;
