@@ -50,7 +50,6 @@ public class Parada {
 		double va2 = 2 * Math.atan2(Math.sqrt(va1), Math.sqrt(1 - va1));
 
 		double distancia = radioTierra * va2;
-
 		return distancia;
 	}
 

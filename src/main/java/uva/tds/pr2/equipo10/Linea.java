@@ -139,7 +139,6 @@ public class Linea {
 			throw new IllegalArgumentException("La dirección no puede ser null.");
 		Parada direccionAComprobar = new Parada(direccion);
 		for (int i = 0; i < paradas.size(); i++) {
-			System.out.println(paradas.get(i).getDistancia(direccionAComprobar));
 			if (paradas.get(i).getDistancia(direccionAComprobar) < 200)
 				return true;
 		}
@@ -168,7 +167,6 @@ public class Linea {
 		for (int i = 0; i < paradasLinea.length; i++) {
 			cerca = hasParadaCerca(paradasLinea[i].getDireccion());
 			if (cerca) {
-				System.out.println(cerca);
 				return cerca;
 			}
 		}
@@ -199,12 +197,12 @@ public class Linea {
 				correspondencias.add(linea.getParadas()[i]);
 			}
 		}
-		
+
 		Parada paradasCorrespondencia[] = new Parada[correspondencias.size()];
 		for (int i = 0; i < correspondencias.size(); i++) {
 			paradasCorrespondencia[i] = correspondencias.get(i);
 		}
-		
+
 		return paradasCorrespondencia;
 	}
 
@@ -221,6 +219,16 @@ public class Linea {
 	 */
 	public boolean hasTrasbordoDirecto(Linea linea) {
 		// TODO Auto-generated method stub
+		if (linea == null)
+			throw new IllegalArgumentException("La linea no puede ser null.");
+		Parada paradasLinea[] = linea.getParadas();
+		for (int i = 0; i < paradasLinea.length; i++) {
+			for (int j = 0; j < paradas.size(); j++) {
+				if (paradas.get(j).getDistancia(paradasLinea[i]) == 0) {
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 
@@ -238,7 +246,27 @@ public class Linea {
 	 */
 	public Parada[] getParadasConTrasbordoDirecto(Linea linea) {
 		// TODO Auto-generated method stub
-		return null;
+		if (linea == null)
+			throw new IllegalArgumentException("La linea no puede ser null.");
+		if (!linea.hasTrasbordoDirecto(this))
+			throw new IllegalArgumentException("La linea proporcionada debe tener trasbordo directo con esta linea.");
+
+		ArrayList<Parada> trasbordos = new ArrayList<>();
+		for (int i = 0; i < linea.getParadas().length; i++) {
+			for (int j = 0; j < paradas.size(); j++) {
+				if (paradas.get(j).getDistancia(linea.getParadas()[i]) == 0) {
+					trasbordos.add(linea.getParadas()[i]);
+				}
+			}
+
+		}
+
+		Parada paradasCorrespondencia[] = new Parada[trasbordos.size()];
+		for (int i = 0; i < trasbordos.size(); i++) {
+			paradasCorrespondencia[i] = trasbordos.get(i);
+		}
+
+		return paradasCorrespondencia;
 	}
 
 	/**
@@ -253,9 +281,13 @@ public class Linea {
 	 * @throws IllegalArgumentException
 	 *             si se incumplen las condiciones impuestas a los parámetros.
 	 */
-	public int checkDistancia(Parada parada1, Parada parada2) {
+	public double checkDistancia(Parada parada1, Parada parada2) {
 		// TODO Auto-generated method stub
-		return 0;
+		if (parada1 == null)
+			throw new IllegalArgumentException("La primera parada no puede ser null.");
+		if (parada2 == null)
+			throw new IllegalArgumentException("La segunda parada no puede ser null.");
+		return parada1.getDistancia(parada2);
 	}
 
 	/**

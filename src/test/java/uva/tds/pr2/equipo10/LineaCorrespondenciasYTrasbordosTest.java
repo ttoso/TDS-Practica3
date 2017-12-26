@@ -1,5 +1,4 @@
- package uva.tds.pr2.equipo10;
-
+package uva.tds.pr2.equipo10;
 
 import static org.junit.Assert.*;
 
@@ -121,7 +120,6 @@ public class LineaCorrespondenciasYTrasbordosTest {
 
 	@Test
 	public void hasTrasbordoDirectoCorrectoTest() {
-		fail("Quitar en implementación");
 		DireccionGPS _direccion1 = new DireccionGPS(21.45, 31.50);
 		DireccionGPS _direccion2 = new DireccionGPS(30.5, 20.4);
 		DireccionGPS _direccion3 = new DireccionGPS(21.44999, 31.50);
@@ -145,7 +143,6 @@ public class LineaCorrespondenciasYTrasbordosTest {
 
 	@Test
 	public void getParadasConTrasbordoDirectoCorrectoTest() {
-		fail("Quitar en implementación");
 		DireccionGPS _direccion1 = new DireccionGPS(21.45, 31.50);
 		DireccionGPS _direccion2 = new DireccionGPS(30.5, 20.4);
 		DireccionGPS _direccion3 = new DireccionGPS(21.44999, 31.50);
@@ -192,11 +189,9 @@ public class LineaCorrespondenciasYTrasbordosTest {
 
 	@Test
 	public void checkDistanciaCorrectoTest() {
-		fail("Quitar en implementación");
-		int distancia = linea.checkDistancia(parada1, parada2);
+		double distancia = linea.checkDistancia(parada1, parada1);
 		assertNotNull(parada1);
-		assertNotNull(parada2);
-		assertEquals(1698851, distancia, errorAdmisible);
+		assertEquals(0, distancia, errorAdmisible);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
