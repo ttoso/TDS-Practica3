@@ -69,7 +69,6 @@ public class DireccionGPSTest {
 
 	@Test
 	public void secuenciaTest() {
-		fail("Quitar en implementacion");
 		double latitud = 1.0;
 		double longitud = 1.0;
 		DireccionGPS direccion = new DireccionGPS(latitud, longitud);
