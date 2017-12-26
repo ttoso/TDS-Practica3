@@ -139,6 +139,7 @@ public class Linea {
 			throw new IllegalArgumentException("La dirección no puede ser null.");
 		Parada direccionAComprobar = new Parada(direccion);
 		for (int i = 0; i < paradas.size(); i++) {
+			System.out.println(paradas.get(i).getDistancia(direccionAComprobar));
 			if (paradas.get(i).getDistancia(direccionAComprobar) < 200)
 				return true;
 		}
@@ -166,6 +167,10 @@ public class Linea {
 		boolean cerca = false;
 		for (int i = 0; i < paradasLinea.length; i++) {
 			cerca = hasParadaCerca(paradasLinea[i].getDireccion());
+			if (cerca) {
+				System.out.println(cerca);
+				return cerca;
+			}
 		}
 		return cerca;
 	}
@@ -183,8 +188,24 @@ public class Linea {
 	 *             si se incumplen las condiciones impuestas al parámetro.
 	 */
 	public Parada[] getParadasConCorrespondencia(Linea linea) {
-		// TODO Auto-generated method stub
-		return null;
+		if (linea == null)
+			throw new IllegalArgumentException("La linea no puede ser null.");
+		if (!linea.hasCorrespondencia(this))
+			throw new IllegalArgumentException("La linea proporcionada debe tener correspondencia con esta linea.");
+
+		ArrayList<Parada> correspondencias = new ArrayList<>();
+		for (int i = 0; i < linea.getParadas().length; i++) {
+			if (hasParadaCerca(linea.getParadas()[i].getDireccion())) {
+				correspondencias.add(linea.getParadas()[i]);
+			}
+		}
+		
+		Parada paradasCorrespondencia[] = new Parada[correspondencias.size()];
+		for (int i = 0; i < correspondencias.size(); i++) {
+			paradasCorrespondencia[i] = correspondencias.get(i);
+		}
+		
+		return paradasCorrespondencia;
 	}
 
 	/**

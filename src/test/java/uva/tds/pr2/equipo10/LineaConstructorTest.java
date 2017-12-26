@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
 
-@Category(Integration.class)
+@Category(Unit.class)
 public class LineaConstructorTest {
 
 	private final double errorAdmisible = 0.001;
@@ -164,7 +164,7 @@ public class LineaConstructorTest {
 
 		Linea linea = new Linea(identificador, paradas);
 		linea.addParadaIntermedia(parada1, 1);
-		linea.removeParada(parada1);
+		linea.removeParada(parada2);
 		linea.hasParadaCerca(direccion1);
 		linea.hasCorrespondencia(linea);
 		linea.getParadasConTrasbordoDirecto(linea);

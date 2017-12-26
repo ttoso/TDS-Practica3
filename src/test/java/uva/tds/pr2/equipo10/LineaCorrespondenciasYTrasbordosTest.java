@@ -1,4 +1,4 @@
-package uva.tds.pr2.equipo10;
+ package uva.tds.pr2.equipo10;
 
 
 import static org.junit.Assert.*;
@@ -25,7 +25,7 @@ public class LineaCorrespondenciasYTrasbordosTest {
 	public void setUp() throws Exception {
 		direccion1 = new DireccionGPS(20.45, 30.50);
 		direccion2 = new DireccionGPS(30.5, 20.4);
-		direccion3 = new DireccionGPS(20.4498, 30.50);
+		direccion3 = new DireccionGPS(20.44999, 30.50);
 		parada1 = new Parada(direccion1);
 		parada2 = new Parada(direccion2);
 		parada3 = new Parada(direccion3);
@@ -52,10 +52,9 @@ public class LineaCorrespondenciasYTrasbordosTest {
 
 	@Test
 	public void hasCorrespondenciaCorrectoTest() {
-		fail("Quitar en implementación");
 		DireccionGPS _direccion1 = new DireccionGPS(20.45, 30.50);
 		DireccionGPS _direccion2 = new DireccionGPS(30.5, 20.4);
-		DireccionGPS _direccion3 = new DireccionGPS(20.4498, 30.50);
+		DireccionGPS _direccion3 = new DireccionGPS(20.44999, 30.50);
 		Parada _parada1 = new Parada(_direccion1);
 		Parada _parada2 = new Parada(_direccion2);
 		Parada _parada3 = new Parada(_direccion3);
@@ -77,10 +76,9 @@ public class LineaCorrespondenciasYTrasbordosTest {
 
 	@Test
 	public void getParadasConCorrespondenciaCorrectoTest() {
-		fail("Quitar en implementación");
 		DireccionGPS _direccion1 = new DireccionGPS(20.45, 30.50);
 		DireccionGPS _direccion2 = new DireccionGPS(30.5, 20.4);
-		DireccionGPS _direccion3 = new DireccionGPS(20.4498, 30.50);
+		DireccionGPS _direccion3 = new DireccionGPS(20.44999, 30.50);
 		Parada _parada1 = new Parada(_direccion1);
 		Parada _parada2 = new Parada(_direccion2);
 		Parada _parada3 = new Parada(_direccion3);
@@ -106,9 +104,9 @@ public class LineaCorrespondenciasYTrasbordosTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void getParadasConCorrespondenciaConLineaSinCorrespondenciaTest() {
-		DireccionGPS _direccion1 = new DireccionGPS(21.45, 31.50);
-		DireccionGPS _direccion2 = new DireccionGPS(31.5, 21.4);
-		DireccionGPS _direccion3 = new DireccionGPS(21.4498, 31.50);
+		DireccionGPS _direccion1 = new DireccionGPS(22.45, 32.50);
+		DireccionGPS _direccion2 = new DireccionGPS(32.5, 22.4);
+		DireccionGPS _direccion3 = new DireccionGPS(22.44999, 32.50);
 		Parada _parada1 = new Parada(_direccion1);
 		Parada _parada2 = new Parada(_direccion2);
 		Parada _parada3 = new Parada(_direccion3);
@@ -126,7 +124,7 @@ public class LineaCorrespondenciasYTrasbordosTest {
 		fail("Quitar en implementación");
 		DireccionGPS _direccion1 = new DireccionGPS(21.45, 31.50);
 		DireccionGPS _direccion2 = new DireccionGPS(30.5, 20.4);
-		DireccionGPS _direccion3 = new DireccionGPS(21.4498, 31.50);
+		DireccionGPS _direccion3 = new DireccionGPS(21.44999, 31.50);
 		Parada _parada1 = new Parada(_direccion1);
 		Parada _parada2 = new Parada(_direccion2);
 		Parada _parada3 = new Parada(_direccion3);
@@ -150,7 +148,7 @@ public class LineaCorrespondenciasYTrasbordosTest {
 		fail("Quitar en implementación");
 		DireccionGPS _direccion1 = new DireccionGPS(21.45, 31.50);
 		DireccionGPS _direccion2 = new DireccionGPS(30.5, 20.4);
-		DireccionGPS _direccion3 = new DireccionGPS(21.4498, 31.50);
+		DireccionGPS _direccion3 = new DireccionGPS(21.44999, 31.50);
 		Parada _parada1 = new Parada(_direccion1);
 
 		Parada _parada2 = new Parada(_direccion2);
@@ -172,14 +170,14 @@ public class LineaCorrespondenciasYTrasbordosTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void getParadasConTrasbordoDirectoConLineaNullTest() {
-		linea.getParadasConCorrespondencia(null);
+		linea.getParadasConTrasbordoDirecto(null);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void getParadasConTrasbordoDirectoConLineaSinTrasbordoDirectoTest() {
 		DireccionGPS _direccion1 = new DireccionGPS(21.45, 31.50);
 		DireccionGPS _direccion2 = new DireccionGPS(31.5, 21.4);
-		DireccionGPS _direccion3 = new DireccionGPS(21.4498, 31.50);
+		DireccionGPS _direccion3 = new DireccionGPS(21.44999, 31.50);
 		Parada _parada1 = new Parada(_direccion1);
 		Parada _parada2 = new Parada(_direccion2);
 		Parada _parada3 = new Parada(_direccion3);

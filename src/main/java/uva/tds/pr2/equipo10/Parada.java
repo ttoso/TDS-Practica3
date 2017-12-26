@@ -36,7 +36,7 @@ public class Parada {
 	 * @throws IllegalArgumentException
 	 *             si se incumplen las condiciones impuestas al parámetro.
 	 */
-	public int getDistancia(Parada parada) {
+	public double getDistancia(Parada parada) {
 		if (parada == null)
 			throw new IllegalArgumentException("La parada no puede ser nula");
 
@@ -51,7 +51,7 @@ public class Parada {
 
 		double distancia = radioTierra * va2;
 
-		return (int) distancia;
+		return distancia;
 	}
 
 	/**

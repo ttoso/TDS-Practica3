@@ -4,8 +4,11 @@ package uva.tds.pr2.equipo10;
 import static org.junit.Assert.*;
 
 import org.junit.*;
+import org.junit.experimental.categories.Category;
 
-public class LineaGestionDeParadasTest {
+
+@Category(Unit.class)
+public class LineaGestionDeParadasTestUnit {
 
 	private DireccionGPS direccion1;
 	private DireccionGPS direccion2;
@@ -146,16 +149,7 @@ public class LineaGestionDeParadasTest {
 
 	}
 
-	@Test
-	public void hasParadaCercaCorrectoTest() {
-		assertTrue(linea.hasParadaCerca(direccion2));
-		assertNotNull(direccion2);
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void hasParadaCercaConDireccionNullTest() {
-		linea.hasParadaCerca(null);
-	}
+	
 
 	@Test
 	public void hasParadaCorrectoTest() {
