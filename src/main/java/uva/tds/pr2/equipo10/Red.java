@@ -145,8 +145,31 @@ public class Red {
 	 *             los parámetros.
 	 */
 	public Linea[] infoParadas(DireccionGPS direccion, int radio) {
-		// TODO Auto-generated method stub
-		return null;
+		if (direccion == null)
+			throw new IllegalArgumentException("La direcion debe ser no nula.");
+		if (radio < 1)
+			throw new IllegalArgumentException("El readio debe ser positivo");
+		
+		Parada referencia = new Parada(direccion);
+		ArrayList<Linea> resultado = new ArrayList<>();
+		
+		for (int i = 0; i < lineas.size(); i++) {
+			Parada paradas[] =lineas.get(i).getParadas();
+			for (int j = 0; j < paradas.length; j++) {
+				if (paradas[i].getDistancia(referencia) < radio) {
+					resultado.add(lineas.get(i));
+					break;
+				}
+			}
+		}
+		
+		Linea respuesta[] = new Linea[resultado.size()];
+		for (int i = 0; i < resultado.size(); i++) {
+			respuesta[i] = resultado.get(i);
+		}
+		
+		return respuesta;
+		
 	}
 
 	/**
@@ -161,9 +184,12 @@ public class Red {
 	 *             si se incumple alguna de las condiciones impuestas a los
 	 *             parámetros.
 	 */
-	public int getDistanciaParadas(Parada parada1, Parada parada2) {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getDistanciaParadas(Parada parada1, Parada parada2) {
+		if (parada1 == null)
+			throw new IllegalArgumentException("La parada1 no puede ser nula");
+		if (parada2 == null)
+			throw new IllegalArgumentException("la parada2 no puede ser nula");
+		return parada1.getDistancia(parada2);
 	}
 
 }
