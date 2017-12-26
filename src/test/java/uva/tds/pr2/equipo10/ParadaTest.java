@@ -7,7 +7,7 @@ import org.junit.experimental.categories.Category;
 
 
 @Category(Integration.class)
-public class ParadaTestIntegration {
+public class ParadaTest {
 
 	@Test
 	public void getDistanciaCorrectoTest() {

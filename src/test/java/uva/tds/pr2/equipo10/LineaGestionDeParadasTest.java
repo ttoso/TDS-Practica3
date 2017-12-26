@@ -10,7 +10,7 @@ import org.junit.experimental.categories.Category;
 
 
 @Category(Integration.class)
-public class LineaGestionDeParadasTestIntegration {
+public class LineaGestionDeParadasTest {
 
 	private DireccionGPS direccion1;
 	private DireccionGPS direccion2;
