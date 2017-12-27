@@ -66,4 +66,4 @@ Las clases que se han desarrollado para dar solucion al proyectos son: DirecionG
 - SecuenciaRedTest: 76.
 
 ## Horas-Hombre
-El numero de horas hombre es de 14.8.
+El numero de horas hombre es de 19.8.
