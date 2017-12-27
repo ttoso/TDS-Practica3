@@ -1,5 +1,6 @@
 package uva.tds.pr2.equipo10;
 
+import java.util.ArrayList;
 
 /**
  * Implementación basica de una linea de buses
@@ -9,6 +10,9 @@ package uva.tds.pr2.equipo10;
  *
  */
 public class Linea {
+
+	private int identificador;
+	private ArrayList<Parada> paradas = new ArrayList<>();
 
 	/**
 	 * Constructor de la clase linea
@@ -20,7 +24,7 @@ public class Linea {
 	 *            Array que contiene las paradas de la linea y cuya primera y
 	 *            ultima posicion seran la primera y ultima parada de la linea
 	 *            respectivamente. Debe ser correcto: No debe ser nulo No debe
-	 *            contener elementos nulos Debe tener 3 elmentos o mas La
+	 *            contener elementos nulos Debe tener 3 elementos o mas La
 	 *            distancia entre el primer y ultimo elemento del array debe ser
 	 *            menor a 100.
 	 * @throws IllegalArgumentException
@@ -28,7 +32,19 @@ public class Linea {
 	 *             parámetros.
 	 */
 	public Linea(int identificador, Parada[] paradas) {
-		// TODO Auto-generated constructor stub
+		if (identificador < 1)
+			throw new IllegalArgumentException("El identificador debe ser positivo.");
+		if (paradas == null)
+			throw new IllegalArgumentException("El vector de paradas no puede ser null.");
+		if (hasParadaNull(paradas))
+			throw new IllegalArgumentException("El vector de paradas no puede tener Paradas nulas.");
+		if (paradas.length < 3)
+			throw new IllegalArgumentException("El vector de paradas debe tener al menos 3 elementos.");
+		if (paradas[0].getDistancia(paradas[paradas.length - 1]) > 100)
+			throw new IllegalArgumentException(
+					"La distancia entre el primer y el ultimo elemento del vector debe ser menor a 100.");
+		this.identificador = identificador;
+		volcarParadas(paradas);
 	}
 
 	/**
@@ -44,7 +60,13 @@ public class Linea {
 	 *             parámetros.
 	 */
 	public void addParadaIntermedia(Parada parada, int posicion) {
-		// TODO Auto-generated method stub
+		if (parada == null)
+			throw new IllegalArgumentException("La parada no puede ser nula.");
+		if (posicion == 0)
+			throw new IllegalArgumentException("La posicion no puede ser la de la parada inicial");
+		if (posicion == paradas.size() - 1)
+			throw new IllegalArgumentException("La posicion no puede ser la de la parada final");
+		paradas.add(posicion, parada);
 
 	}
 
@@ -56,7 +78,13 @@ public class Linea {
 	 *            de 100 metros de la parada inicial.
 	 */
 	public void addParadaFinal(Parada parada) {
-		// TODO Auto-generated method stub
+		if (parada == null)
+			throw new IllegalArgumentException("La parada no puede ser null.");
+		if (parada.getDistancia(paradas.get(0)) > 100)
+			throw new IllegalArgumentException(
+					"La distancia entre la parada y la parada inicial debe ser menor a 100.");
+		paradas.add(parada);
+
 	}
 
 	/**
@@ -67,9 +95,11 @@ public class Linea {
 	 *            de 100 metros de la parada final.
 	 */
 	public void addParadaInicial(Parada parada) {
-
-		// TODO Auto-generated method stub
-
+		if (parada == null)
+			throw new IllegalArgumentException("La parada no debe ser nula.");
+		if (parada.getDistancia(paradas.get(paradas.size() - 1)) > 100)
+			throw new IllegalArgumentException("La distancia entre la parada y la parada final debe ser menor a 100.");
+		paradas.add(0, parada);
 	}
 
 	/**
@@ -83,22 +113,34 @@ public class Linea {
 	 *             si se incumplen las condiciones impuestas
 	 */
 	public void removeParada(Parada parada) {
-		// TODO Auto-generated method stub
-
+		if (parada == null)
+			throw new IllegalArgumentException("La parada a eliminar no puede ser null.");
+		if (parada.equals(paradas.get(0)))
+			throw new IllegalArgumentException("La parada a eleminar no puede ser la inicial.");
+		if (parada.equals(paradas.get(paradas.size() - 1)))
+			throw new IllegalArgumentException("La parada a eleminar no puede ser la final.");
+		paradas.remove(parada);
 	}
 
 	/**
 	 * Comprueba si la Linea tiene una Parada cerca de la direccion pasada.
 	 *
-	 * @param direccion2
+	 * @param direccion
 	 *            DireccionGPS a comprobar.Debe ser correcto: No ser null.
 	 * @return true si tiene una Parada a menos de 200m de la Direccion pasada,
 	 *         false en caso contrario.
 	 * @throws IllegalArgumentException
 	 *             si se incumplen las condiciones impuestas al parámetro.
 	 */
-	public boolean hasParadaCerca(DireccionGPS direccion2) {
-		// TODO Auto-generated method stub
+	public boolean hasParadaCerca(DireccionGPS direccion) {
+		if (direccion == null)
+			throw new IllegalArgumentException("La dirección no puede ser null.");
+		Parada direccionAComprobar = new Parada(direccion);
+		for (int i = 0; i < paradas.size(); i++) {
+			if (paradas.get(i).getDistancia(direccionAComprobar) < 200)
+				return true;
+		}
+
 		return false;
 	}
 
@@ -116,8 +158,17 @@ public class Linea {
 	 *             si se incumplen las condiciones impuestas al parámetro.
 	 */
 	public boolean hasCorrespondencia(Linea linea) {
-		// TODO Auto-generated method stub
-		return false;
+		if (linea == null)
+			throw new IllegalArgumentException("La linea no debe ser null.");
+		Parada[] paradasLinea = linea.getParadas();
+		boolean cerca = false;
+		for (int i = 0; i < paradasLinea.length; i++) {
+			cerca = hasParadaCerca(paradasLinea[i].getDireccion());
+			if (cerca) {
+				return cerca;
+			}
+		}
+		return cerca;
 	}
 
 	/**
@@ -133,8 +184,24 @@ public class Linea {
 	 *             si se incumplen las condiciones impuestas al parámetro.
 	 */
 	public Parada[] getParadasConCorrespondencia(Linea linea) {
-		// TODO Auto-generated method stub
-		return null;
+		if (linea == null)
+			throw new IllegalArgumentException("La linea proporcionada no puede ser null.");
+		if (!linea.hasCorrespondencia(this))
+			throw new IllegalArgumentException("La linea proporcionada debe tener correspondencia con esta linea.");
+
+		ArrayList<Parada> correspondencias = new ArrayList<>();
+		for (int i = 0; i < linea.getParadas().length; i++) {
+			if (hasParadaCerca(linea.getParadas()[i].getDireccion())) {
+				correspondencias.add(linea.getParadas()[i]);
+			}
+		}
+
+		Parada[] paradasCorrespondencia = new Parada[correspondencias.size()];
+		for (int i = 0; i < correspondencias.size(); i++) {
+			paradasCorrespondencia[i] = correspondencias.get(i);
+		}
+
+		return paradasCorrespondencia;
 	}
 
 	/**
@@ -149,7 +216,16 @@ public class Linea {
 	 *             si se incumplen las condiciones impuestas al parámetro.
 	 */
 	public boolean hasTrasbordoDirecto(Linea linea) {
-		// TODO Auto-generated method stub
+		if (linea == null)
+			throw new IllegalArgumentException("La linea no puede ser null.");
+		Parada[] paradasLinea = linea.getParadas();
+		for (int i = 0; i < paradasLinea.length; i++) {
+			for (int j = 0; j < paradas.size(); j++) {
+				if (paradas.get(j).getDistancia(paradasLinea[i]) < 0.0001) {
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 
@@ -166,8 +242,27 @@ public class Linea {
 	 *             si se incumplen las condiciones impuestas al parámetro.
 	 */
 	public Parada[] getParadasConTrasbordoDirecto(Linea linea) {
-		// TODO Auto-generated method stub
-		return null;
+		if (linea == null)
+			throw new IllegalArgumentException("La linea no puede ser null.");
+		if (!linea.hasTrasbordoDirecto(this))
+			throw new IllegalArgumentException("La linea proporcionada debe tener trasbordo directo con esta linea.");
+
+		ArrayList<Parada> trasbordos = new ArrayList<>();
+		for (int i = 0; i < linea.getParadas().length; i++) {
+			for (int j = 0; j < paradas.size(); j++) {
+				if (paradas.get(j).getDistancia(linea.getParadas()[i]) < 0.0001) {
+					trasbordos.add(linea.getParadas()[i]);
+				}
+			}
+
+		}
+
+		Parada[] paradasCorrespondencia = new Parada[trasbordos.size()];
+		for (int i = 0; i < trasbordos.size(); i++) {
+			paradasCorrespondencia[i] = trasbordos.get(i);
+		}
+
+		return paradasCorrespondencia;
 	}
 
 	/**
@@ -182,9 +277,12 @@ public class Linea {
 	 * @throws IllegalArgumentException
 	 *             si se incumplen las condiciones impuestas a los parámetros.
 	 */
-	public int checkDistancia(Parada parada1, Parada parada2) {
-		// TODO Auto-generated method stub
-		return 0;
+	public double checkDistancia(Parada parada1, Parada parada2) {
+		if (parada1 == null)
+			throw new IllegalArgumentException("La primera parada no puede ser null.");
+		if (parada2 == null)
+			throw new IllegalArgumentException("La segunda parada no puede ser null.");
+		return parada1.getDistancia(parada2);
 	}
 
 	/**
@@ -192,8 +290,7 @@ public class Linea {
 	 * @return Identificador de this.
 	 */
 	public int getId() {
-		// TODO Auto-generated method stub
-		return 0;
+		return identificador;
 	}
 
 	/**
@@ -201,18 +298,27 @@ public class Linea {
 	 * @return Vector de Paradas de this.
 	 */
 	public Parada[] getParadas() {
-		// TODO Auto-generated method stub
-		return null;
+		Parada[] resultado = new Parada[paradas.size()];
+		for (int i = 0; i < resultado.length; i++) {
+			resultado[i] = paradas.get(i);
+		}
+		return resultado;
 	}
 
 	/**
 	 * Comprobará si la Linea tiene alguna Parada null, para informar al
 	 * usuario.
 	 *
+	 * @param paradas
+	 *            Vector de Paradas en el que se comprobará si hay elementos
+	 *            nulos.
 	 * @return true si tiene alguna Parada null, false en caso contrario.
 	 */
-	public boolean hasParadaNull() {
-		// TODO Auto-generated method stub
+	public boolean hasParadaNull(Parada[] paradas) {
+		for (int i = 0; i < paradas.length; i++) {
+			if (paradas[i] == null)
+				return true;
+		}
 		return false;
 	}
 
@@ -225,8 +331,20 @@ public class Linea {
 	 * @return true si la Linea tiene la Parada, false en caso contrario.
 	 */
 	public boolean hasParada(Parada parada) {
-		// TODO Auto-generated method stub
+		if (parada == null)
+			throw new IllegalArgumentException("La parada no puede ser null.");
+		for (int i = 0; i < paradas.size(); i++) {
+			if (parada.equals(paradas.get(i))) {
+				return true;
+			}
+		}
 		return false;
+	}
+
+	private void volcarParadas(Parada[] paradas) {
+		for (int i = 0; i < paradas.length; i++) {
+			this.paradas.add(paradas[i]);
+		}
 	}
 
 }

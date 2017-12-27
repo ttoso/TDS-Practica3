@@ -1,5 +1,6 @@
 package uva.tds.pr2.equipo10;
 
+import java.util.ArrayList;
 
 /**
  * Implementación sencilla de una red de buses.
@@ -8,6 +9,8 @@ package uva.tds.pr2.equipo10;
  * @author antroma
  */
 public class Red {
+
+	private ArrayList<Linea> lineas = new ArrayList<>();
 
 	/**
 	 * Inicia una red de autobuses con un vector de Lineas que la componen.
@@ -20,7 +23,15 @@ public class Red {
 	 *             si no se cumplen las conciones impuestas al parámetro.
 	 */
 	public Red(Linea[] lineas) {
-		// TODO Auto-generated constructor stub
+		if (lineas == null)
+			throw new IllegalArgumentException("El array de lineas no puede ser nulo.");
+		if (lineas.length < 2)
+			throw new IllegalArgumentException("El array de lineas debe contener al menos dos elementos.");
+		if (hasLineaNull(lineas))
+			throw new IllegalArgumentException("El array de lineas no debe contener elementos nulos");
+		for (int i = 0; i < lineas.length; i++) {
+			this.lineas.add(lineas[i]);
+		}
 	}
 
 	/**
@@ -28,17 +39,29 @@ public class Red {
 	 * @return vector de Lineas de la Red.
 	 */
 	public Linea[] getLineas() {
-		// TODO Auto-generated method stub
-		return null;
+		Linea[] salida = new Linea[lineas.size()];
+		for (int i = 0; i < lineas.size(); i++) {
+			salida[i] = lineas.get(i);
+		}
+		return salida;
 	}
 
 	/**
 	 * Comprueba si la Red tiene alguna Linea nula.
+	 * 
+	 * @param lineas
+	 *            Array de lineas que representa una red. Debe ser correcto: no
+	 *            nulo.
 	 *
 	 * @return true si tiene al menos una Linea nula, false en caso contrario.
 	 */
-	public boolean hasLineaNull() {
-		// TODO Auto-generated method stub
+	public boolean hasLineaNull(Linea[] lineas) {
+		if (lineas == null)
+			throw new IllegalArgumentException("El array de lineas no puede ser nulo.");
+		for (int i = 0; i < lineas.length; i++) {
+			if (lineas[i] == null)
+				return true;
+		}
 		return false;
 	}
 
@@ -52,8 +75,13 @@ public class Red {
 	 *             en caso de incumplir las condiciones impuestas al par�metro.
 	 */
 	public void addLinea(Linea linea) {
-		// TODO Auto-generated method stub
-
+		if (linea == null)
+			throw new IllegalArgumentException("La Linea no puede ser null.");
+		lineas.forEach(s -> {
+			if (s.equals(linea))
+				throw new IllegalArgumentException("La linea introducida ya está en la red.");
+		});
+		lineas.add(linea);
 	}
 
 	/**
@@ -68,8 +96,14 @@ public class Red {
 	 *             en caso de incumplir las condiciones impuestas al parámetro.
 	 */
 	public Linea getLinea(int posicion) {
-		// TODO Auto-generated method stub
-		return null;
+		if (posicion < 0)
+			throw new IllegalArgumentException("La posición de la linea debe ser positiva.");
+		if (posicion >= lineas.size()) {
+			return null;
+		} else {
+			return lineas.get(posicion);
+		}
+
 	}
 
 	/**
@@ -82,8 +116,17 @@ public class Red {
 	 *             en caso de incumplir las condiciones impuestas al parámetro.
 	 */
 	public void removeLinea(Linea linea) {
-		// TODO Auto-generated method stub
+		if (linea == null)
+			throw new IllegalArgumentException("La Linea no puede ser null.");
+		boolean find = false;
+		for (int i = 0; i < lineas.size(); i++) {
+			if (lineas.get(i).equals(linea))
+				find = true;
+		}
+		if (!find)
+			throw new IllegalArgumentException("La linea que se quiere borrar debe estar dentro de la red.");
 
+		lineas.remove(linea);
 	}
 
 	/**
@@ -102,8 +145,35 @@ public class Red {
 	 *             los parámetros.
 	 */
 	public Linea[] infoParadas(DireccionGPS direccion, int radio) {
-		// TODO Auto-generated method stub
-		return null;
+		if (direccion == null)
+			throw new IllegalArgumentException("La direcion debe ser no nula.");
+		if (radio < 1)
+			throw new IllegalArgumentException("El readio debe ser positivo");
+
+		Parada referencia = new Parada(direccion);
+		ArrayList<Linea> resultado = new ArrayList<>();
+
+		for (int i = 0; i < lineas.size(); i++) {
+			Parada[] paradas = lineas.get(i).getParadas();
+			int j = 0;
+			boolean salir = false;
+			while (j < paradas.length && !salir) {
+				if (paradas[j].getDistancia(referencia) <= radio) {
+					resultado.add(lineas.get(i));
+					salir = true;
+				}
+				j++;
+			}
+
+		}
+
+		Linea[] respuesta = new Linea[resultado.size()];
+		for (int i = 0; i < resultado.size(); i++) {
+			respuesta[i] = resultado.get(i);
+		}
+
+		return respuesta;
+
 	}
 
 	/**
@@ -118,9 +188,12 @@ public class Red {
 	 *             si se incumple alguna de las condiciones impuestas a los
 	 *             parámetros.
 	 */
-	public int getDistanciaParadas(Parada parada1, Parada parada2) {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getDistanciaParadas(Parada parada1, Parada parada2) {
+		if (parada1 == null)
+			throw new IllegalArgumentException("La parada1 no puede ser nula");
+		if (parada2 == null)
+			throw new IllegalArgumentException("la parada2 no puede ser nula");
+		return parada1.getDistancia(parada2);
 	}
 
 }

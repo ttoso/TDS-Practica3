@@ -7,6 +7,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import org.junit.experimental.categories.Category;
+
+
+@Category(Integration.class)
 public class RedGestionDeDistanciasTest {
 
 	private DireccionGPS direccion1;
@@ -33,7 +37,7 @@ public class RedGestionDeDistanciasTest {
 	public void setUp() throws Exception {
 		direccion1 = new DireccionGPS(20.45, 30.50);
 		direccion2 = new DireccionGPS(30.5, 20.4);
-		direccion3 = new DireccionGPS(20.4498, 30.50);
+		direccion3 = new DireccionGPS(20.44999, 30.50);
 		parada1 = new Parada(direccion1);
 		parada2 = new Parada(direccion2);
 		parada3 = new Parada(direccion3);
@@ -105,10 +109,10 @@ public class RedGestionDeDistanciasTest {
 	@Test
 	public void getDistanciaParadasCorrectoTest() {
 		@SuppressWarnings("unused")
-		int distancia = red.getDistanciaParadas(parada1, parada5);
+		double distancia = red.getDistanciaParadas(parada1, parada5);
 		assertNotNull(parada1);
 		assertNotNull(parada5);
-		assertEquals(6887904, red.getDistanciaParadas(parada1, parada5));
+		assertTrue(0 == red.getDistanciaParadas(parada1, parada1));
 	}
 
 	@Test(expected = IllegalArgumentException.class)

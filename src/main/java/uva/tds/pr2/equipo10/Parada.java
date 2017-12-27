@@ -1,6 +1,5 @@
 package uva.tds.pr2.equipo10;
 
-
 /**
  * Implementación de una Parada para la segunda práctica de la asignatura TDS.
  *
@@ -8,6 +7,8 @@ package uva.tds.pr2.equipo10;
  * @author antroma
  */
 public class Parada {
+
+	private DireccionGPS direccionGPS;
 
 	/**
 	 * Constructor de la clase Parada.
@@ -20,7 +21,10 @@ public class Parada {
 	 *             si se incumplen las condiciones impuestas al parámetro.
 	 */
 	public Parada(DireccionGPS direccionGPS) {
-		// TODO Auto-generated constructor stub
+		if (direccionGPS == null)
+			throw new IllegalArgumentException("La direccionGPS no puede ser nula");
+
+		this.direccionGPS = direccionGPS;
 	}
 
 	/**
@@ -32,17 +36,27 @@ public class Parada {
 	 * @throws IllegalArgumentException
 	 *             si se incumplen las condiciones impuestas al parámetro.
 	 */
-	public int getDistancia(Parada parada) {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getDistancia(Parada parada) {
+		if (parada == null)
+			throw new IllegalArgumentException("La parada no puede ser nula");
+
+		int radioTierra = 6371000;
+		double diferenciaDeLatitudes = getDireccion().getLatitud() - parada.getDireccion().getLatitud();
+		double diferenciaDeLongitudes = getDireccion().getLongitud() - parada.getDireccion().getLongitud();
+		double sindLat = Math.sin(diferenciaDeLatitudes / 2);
+		double sindLng = Math.sin(diferenciaDeLongitudes / 2);
+		double va1 = Math.pow(sindLat, 2) + Math.pow(sindLng, 2) * Math.cos(Math.toRadians(getDireccion().getLatitud()))
+				* Math.cos(Math.toRadians(parada.getDireccion().getLatitud()));
+		double va2 = 2 * Math.atan2(Math.sqrt(va1), Math.sqrt(1 - va1));
+
+		return radioTierra * va2;
 	}
 
 	/**
 	 * @return DireccionGPS de this.
 	 */
 	public DireccionGPS getDireccion() {
-		// TODO Auto-generated method stub
-		return null;
+		return direccionGPS;
 	}
 
 }

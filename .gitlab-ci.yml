@@ -29,15 +29,16 @@ test_isolation:
  stage: test
  script:
    - mvn test -P Isolation
- except:
-   - master
 
 test_integration:
  stage: test
  script:
    - mvn test -P Integration
- only:
-   - master
+
+test_sequence:
+ stage: test
+ script:
+   - mvn test -P Sequence
 
 sonar_publish_job:
   stage: qa
@@ -76,10 +77,3 @@ pages:
     paths:
       - public
     expire_in: 30 days
-
-deploy:
-  stage: deploy
-  script:
-    - mvn -$MAVEN_CLI_OPTS deploy
-  only:
-    - master

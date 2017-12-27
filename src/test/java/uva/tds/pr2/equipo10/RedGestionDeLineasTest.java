@@ -7,6 +7,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import org.junit.experimental.categories.Category;
+
+
+@Category(Unit.class)
 public class RedGestionDeLineasTest {
 
 	private DireccionGPS direccion1;
@@ -34,7 +38,7 @@ public class RedGestionDeLineasTest {
 	public void setUp() throws Exception {
 		direccion1 = new DireccionGPS(20.45, 30.50);
 		direccion2 = new DireccionGPS(30.5, 20.4);
-		direccion3 = new DireccionGPS(20.4498, 30.50);
+		direccion3 = new DireccionGPS(20.44999, 30.50);
 		parada1 = new Parada(direccion1);
 		parada2 = new Parada(direccion2);
 		parada3 = new Parada(direccion3);
@@ -86,7 +90,7 @@ public class RedGestionDeLineasTest {
 	public void addLineaCorrectoTest() {
 		DireccionGPS d1 = new DireccionGPS(20.45, 30.50);
 		DireccionGPS d2 = new DireccionGPS(30.5, 20.4);
-		DireccionGPS d3 = new DireccionGPS(20.4498, 30.50);
+		DireccionGPS d3 = new DireccionGPS(20.44999, 30.50);
 		Parada p1 = new Parada(d1);
 		Parada p2 = new Parada(d2);
 		Parada p3 = new Parada(d3);
@@ -123,7 +127,6 @@ public class RedGestionDeLineasTest {
 
 	@Test
 	public void removeLineaCorrectoTest() {
-		fail("Quitar en implementación");
 		red.removeLinea(linea);
 		assertNotNull(linea);
 	}
