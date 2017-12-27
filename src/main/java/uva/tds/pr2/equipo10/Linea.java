@@ -185,7 +185,7 @@ public class Linea {
 	 */
 	public Parada[] getParadasConCorrespondencia(Linea linea) {
 		if (linea == null)
-			throw new IllegalArgumentException("La linea no puede ser null.");
+			throw new IllegalArgumentException("La linea proporcionada no puede ser null.");
 		if (!linea.hasCorrespondencia(this))
 			throw new IllegalArgumentException("La linea proporcionada debe tener correspondencia con esta linea.");
 
