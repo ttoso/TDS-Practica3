@@ -5,7 +5,7 @@ El proyecto se ha realizado usando JUnit4.
 Se he llevado a cabo su desarrollo con jdk 8 en el IDE Eclipse Mars 2.
 Se ha usado Maven para poder llevar a cabo la CI del proyecto, junto con sonarqube para analizar el mismo.
 
-Hemos usado git con un repositorio remoto en Gitlab: https://gitlab.inf.uva.es/tds-ivagonz-antroma/ivagonz-antroma-practica3.git, y con un repositorio de respaldo en BitBucket: https://antroma@bitbucket.org/ivagonz/ivagonz-antroma-practica2.git.
+Hemos usado git con un repositorio remoto en Gitlab: https://gitlab.inf.uva.es/tds-ivagonz-antroma/ivagonz-antroma-practica3.git, y con un repositorio de respaldo en BitBucket: https://ivagonz@bitbucket.org/ivagonz/ivagonz-antroma-practica3.git
 
 
 Se ha utilizado la herramienta tracking time para medir los tiempos gastados en realizar cada tarea y la comunicación entre los miembros del desarrollo se ha llevado a cabo mediante slack y skype.
