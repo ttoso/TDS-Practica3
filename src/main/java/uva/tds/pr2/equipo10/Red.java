@@ -39,7 +39,7 @@ public class Red {
 	 * @return vector de Lineas de la Red.
 	 */
 	public Linea[] getLineas() {
-		Linea salida[] = new Linea[lineas.size()];
+		Linea[] salida = new Linea[lineas.size()];
 		for (int i = 0; i < lineas.size(); i++) {
 			salida[i] = lineas.get(i);
 		}
@@ -154,7 +154,7 @@ public class Red {
 		ArrayList<Linea> resultado = new ArrayList<>();
 
 		for (int i = 0; i < lineas.size(); i++) {
-			Parada paradas[] = lineas.get(i).getParadas();
+			Parada[] paradas = lineas.get(i).getParadas();
 			int j = 0;
 			boolean salir = false;
 			while (j < paradas.length && !salir) {
@@ -167,7 +167,7 @@ public class Red {
 
 		}
 
-		Linea respuesta[] = new Linea[resultado.size()];
+		Linea[] respuesta = new Linea[resultado.size()];
 		for (int i = 0; i < resultado.size(); i++) {
 			respuesta[i] = resultado.get(i);
 		}

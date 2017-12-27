@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Linea {
 
 	private int identificador;
-	private ArrayList<Parada> paradas = new ArrayList<Parada>();
+	private ArrayList<Parada> paradas = new ArrayList<>();
 
 	/**
 	 * Constructor de la clase linea
@@ -61,7 +61,7 @@ public class Linea {
 	 */
 	public void addParadaIntermedia(Parada parada, int posicion) {
 		if (parada == null)
-			throw new IllegalArgumentException("La parada no puede ser null.");
+			throw new IllegalArgumentException("La parada no puede ser nula.");
 		if (posicion == 0)
 			throw new IllegalArgumentException("La posicion no puede ser la de la parada inicial");
 		if (posicion == paradas.size() - 1)
@@ -96,7 +96,7 @@ public class Linea {
 	 */
 	public void addParadaInicial(Parada parada) {
 		if (parada == null)
-			throw new IllegalArgumentException("La parada no puede ser null.");
+			throw new IllegalArgumentException("La parada no debe ser nula.");
 		if (parada.getDistancia(paradas.get(paradas.size() - 1)) > 100)
 			throw new IllegalArgumentException("La distancia entre la parada y la parada final debe ser menor a 100.");
 		paradas.add(0, parada);
@@ -159,8 +159,8 @@ public class Linea {
 	 */
 	public boolean hasCorrespondencia(Linea linea) {
 		if (linea == null)
-			throw new IllegalArgumentException("La linea no puede ser null.");
-		Parada paradasLinea[] = linea.getParadas();
+			throw new IllegalArgumentException("La linea no debe ser null.");
+		Parada[] paradasLinea = linea.getParadas();
 		boolean cerca = false;
 		for (int i = 0; i < paradasLinea.length; i++) {
 			cerca = hasParadaCerca(paradasLinea[i].getDireccion());
@@ -196,7 +196,7 @@ public class Linea {
 			}
 		}
 
-		Parada paradasCorrespondencia[] = new Parada[correspondencias.size()];
+		Parada[] paradasCorrespondencia = new Parada[correspondencias.size()];
 		for (int i = 0; i < correspondencias.size(); i++) {
 			paradasCorrespondencia[i] = correspondencias.get(i);
 		}
@@ -218,7 +218,7 @@ public class Linea {
 	public boolean hasTrasbordoDirecto(Linea linea) {
 		if (linea == null)
 			throw new IllegalArgumentException("La linea no puede ser null.");
-		Parada paradasLinea[] = linea.getParadas();
+		Parada[] paradasLinea = linea.getParadas();
 		for (int i = 0; i < paradasLinea.length; i++) {
 			for (int j = 0; j < paradas.size(); j++) {
 				if (paradas.get(j).getDistancia(paradasLinea[i]) < 0.0001) {
@@ -257,7 +257,7 @@ public class Linea {
 
 		}
 
-		Parada paradasCorrespondencia[] = new Parada[trasbordos.size()];
+		Parada[] paradasCorrespondencia = new Parada[trasbordos.size()];
 		for (int i = 0; i < trasbordos.size(); i++) {
 			paradasCorrespondencia[i] = trasbordos.get(i);
 		}
@@ -298,11 +298,11 @@ public class Linea {
 	 * @return Vector de Paradas de this.
 	 */
 	public Parada[] getParadas() {
-		Parada[] paradas = new Parada[this.paradas.size()];
-		for (int i = 0; i < paradas.length; i++) {
-			paradas[i] = this.paradas.get(i);
+		Parada[] resultado = new Parada[paradas.size()];
+		for (int i = 0; i < resultado.length; i++) {
+			resultado[i] = paradas.get(i);
 		}
-		return paradas;
+		return resultado;
 	}
 
 	/**
